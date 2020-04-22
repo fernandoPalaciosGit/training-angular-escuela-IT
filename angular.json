@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "training-angular-escuela-IT"
+    }
+  },
+  "defaultProject": "training-angular-escuela-IT",
+  "cli": {
+    "analytics": "d32a7c0b-010f-435e-9fca-7e838547a2e6"
+  }
 }
