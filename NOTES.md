@@ -25,7 +25,11 @@
 
 
 ### PARTES DE ANGULAR
-componentes: partes interactiva de la aplicación -> lógica de negocio 
+`@Component`: partes interactiva de la aplicación -> lógica de negocio -> solamente se encarga de la renderizacion de sus templates
+los componentes tuienbene una forma de interactuar :
+    - @Input: property binding -> enviar datos al template
+    - @Output: event binding -> recibir datos del template
+`@Service`: proveer de los datos a los componentes  
 
 ### DEPLOY
 NodeJS se utiliza para compilar la aplicacion, entonces se crean archivos estaticos para poderlos servir desde cualquier entorno de produccion (es decir no necesitas Node en el hosting, solo un servidor web que sirva los archivos estaticos peviamente compilados)
@@ -37,9 +41,22 @@ Firebase (compilar con node) --> push --> Asure (server web)
 ### TEMPLATE
 - data bindding: enlace de datos entre el componente y su template
 - string interpolation {{ }} : donde se interpretan los datos del componente
-se puede ejecutar codigo javascript dentro del interprete
+se puede ejecutar codigo javascript dentro del interprete74
 
 
 ### NG MODEL
 se utiliza para asignar un modelo de datos a un input de formulario
 es una directiva del módulo de FormControl, así que hay que incluirla como dependencia en App.module
+
+
+### NGIF
+es una directiva que se utiliza para renderizar bloques de contenido dentro de untemplate de componente
+NO solamente es una regla para la visualizacion, implica la ejecución o no de todos los elementos incorporados dentro de su instruccion, por lo que si hay mas componentes dentro de su bloque, si no se cumple su condición, no se ejecutara internamente el bloque.
+En ese sentido, favorece el performance.
+
+#### NG SHITCH
+es una avariante del ngif que permite tener varios condicionales anidados, y ademas uno por defecto
+
+
+###  BROWSER MODULE
+contiene todas las directivas necesarias para renderizar en templates (ngif, ngswitch, ngfor).
