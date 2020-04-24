@@ -25,6 +25,7 @@ export class AppComponent implements OnInit {
   readonly SPRING: string = 'spring';
   productList: Product[] = [];
   productSelected: Product;
+  today: Date = new Date();
 
   constructor(private productService: ProductService) {
   }
