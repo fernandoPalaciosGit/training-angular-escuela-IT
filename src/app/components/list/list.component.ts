@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from '../models/product';
-import { product } from '../mocks/product';
-import { AlgorithmService } from '../services/algorithm.service';
+import { Product } from '../../models/product';
+import { product } from '../../mocks/product';
+import { AlgorithmService } from '../../services/algorithm.service';
 
 @Component({
   selector: 'app-list',

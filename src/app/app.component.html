@@ -1,52 +1,54 @@
-<!--<h1>conficionales de arrays</h1>-->
+<!--
+<h1>conficionales de arrays</h1>
 
-<!--<h3>{{title | titlecase }}</h3>-->
-<!--<h3 *ngIf="!title">porque no añades un titulo????</h3>-->
+<h3>{{title | titlecase }}</h3>
+<h3 *ngIf="!title">porque no añades un titulo????</h3>
 
-<!--<label>-->
-<!--  <span>Cambia el titulo: </span>-->
-<!--  <input type="text" (keydown.enter)="changeTitle($event)">-->
-<!--  <button (click)="cleanTitle()">clean title</button>-->
-<!--</label>-->
-
-
-<!--<div [ngSwitch]="title">-->
-<!--  <p *ngSwitchCase="ANGULAR">-->
-<!--    <a href="https://angular.io/">angular.io</a>-->
-<!--  </p>-->
-<!--  <ul *ngSwitchCase="SPRING">-->
-<!--    <li><a href="https://projectlombok.org/features/all">lombok</a></li>-->
-<!--    <li><a href="https://www.thymeleaf.org/">thymeleaf</a></li>-->
-<!--  </ul>-->
-<!--  <p *ngSwitchDefault>-->
-<!--    <span>No encuentro ninguna referencia</span>-->
-<!--  </p>-->
-<!--</div>-->
+<label>
+  <span>Cambia el titulo: </span>
+  <input type="text" (keydown.enter)="changeTitle($event)">
+  <button (click)="cleanTitle()">clean title</button>
+</label>
 
 
-<!--<h3>iteraciones</h3>-->
-<!--<label>-->
-<!--  <span>Añade una banda de rock: </span>-->
-<!--  <input type="text" (keydown.enter)="addRockBand($event)">-->
-<!--</label>-->
+<div [ngSwitch]="title">
+  <p *ngSwitchCase="ANGULAR">
+    <a href="https://angular.io/">angular.io</a>
+  </p>
+  <ul *ngSwitchCase="SPRING">
+    <li><a href="https://projectlombok.org/features/all">lombok</a></li>
+    <li><a href="https://www.thymeleaf.org/">thymeleaf</a></li>
+  </ul>
+  <p *ngSwitchDefault>
+    <span>No encuentro ninguna referencia</span>
+  </p>
+</div>
 
-<!--<ul *ngFor="let rockBand of rockBandList; index as index">-->
-<!--  <li *ngIf="!!rockBand.name.trim()">-->
-<!--    <span>{{rockBand.name}}</span>-->
-<!--    <button (click)="removeRockBand(index)">Clean</button>-->
-<!--  </li>-->
-<!--</ul>-->
 
-<!--<h2>{{today | dateformat:'LLLL' }}</h2>-->
+<h3>iteraciones</h3>
+<label>
+  <span>Añade una banda de rock: </span>
+  <input type="text" (keydown.enter)="addRockBand($event)">
+</label>
 
-<!--<h2 *ngIf="!!productSelected">-->
-<!--  selected product: {{productSelected.id}}-->
-<!--</h2>-->
+<ul *ngFor="let rockBand of rockBandList; index as index">
+  <li *ngIf="!!rockBand.name.trim()">
+    <span>{{rockBand.name}}</span>
+    <button (click)="removeRockBand(index)">Clean</button>
+  </li>
+</ul>
 
-<!--<app-product-->
-<!--  *ngFor="let product of productList"-->
-<!--  (selectedProduct)="showProductSelected($event)"-->
-<!--  [product]="product"-->
-<!--&gt;</app-product>-->
+<h2>{{today | dateformat:'LLLL' }}</h2>
+
+<h2 *ngIf="!!productSelected">
+  selected product: {{productSelected.id}}
+</h2>
+
+<app-product
+  *ngFor="let product of productList"
+  (selectedProduct)="showProductSelected($event)"
+  [product]="product"
+></app-product>
+-->
 
 <app-list></app-list>

@@ -4,10 +4,10 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
-import { ProductComponent } from './product/product.component';
 import { DateformatPipe } from './pipes/dateformat.pipe';
-import { ListComponent } from './list/list.component';
+import { ListComponent } from './components/list/list.component';
 import { FibonacciNumberPipe } from './pipes/fibonacci-number.pipe';
+import { ProductComponent } from './components/product/product.component';
 
 @NgModule({
   declarations: [
