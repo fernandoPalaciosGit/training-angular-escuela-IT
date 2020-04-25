@@ -80,3 +80,6 @@ o alguna nativa de angular que querramos modificar
 es el patron que angular utioliza para agregar instancias de cualquier miembro (servicio, pipe, componente, modulo....) a traves del constructor en los componentes
 esa dependencia se resuelve como unica para la aplcaicaion, es decir a traves de un singleton se comparte la misma referencia en memoria del miembro injectado.
 
+### compatibilidad de los Servicios y Redux
+ambos coinciden en ser las entidades que capturan los datos a consumir por los componentes.
+Redux es un patron, con todas las entidades que lo conforman, que se encarga de persistir los datos de un componente a traves de Observables (stream de datos)

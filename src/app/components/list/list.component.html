@@ -9,3 +9,10 @@
     {{product.text}} -> <span appHighlight>{{index | fibonacciNumber}}</span>
   </li>
 </ul>
+
+<ul>
+  <li *ngFor="let user of users$ | async">
+    <div>email: {{user.email}}</div>
+    <img src="{{user.picture.large}}" alt="">
+  </li>
+</ul>

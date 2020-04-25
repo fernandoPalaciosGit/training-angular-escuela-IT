@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Product } from '../../models/product';
 import { product } from '../../mocks/product';
 import { AlgorithmService } from '../../services/algorithm.service';
+import { UsersService } from '../../services/users.service';
+import { Observable } from 'rxjs';
+import { Users } from '../../models/users';
 
 @Component({
   selector: 'app-list',
@@ -12,11 +15,16 @@ export class ListComponent implements OnInit {
   product: Product;
   productList: Product [] = [];
   textProduct: string;
+  private readonly USER_NUMBER_LIST = 5;
+  private users$: Observable<Users[]>;
 
-  constructor(private algorithm: AlgorithmService) {
+  constructor(
+    private algorithm: AlgorithmService,
+    private usersService: UsersService) {
   }
 
   ngOnInit(): void {
+    this.users$ = this.usersService.getAllUsers(this.USER_NUMBER_LIST);
   }
 
   addProduct() {
@@ -24,7 +32,8 @@ export class ListComponent implements OnInit {
     this.textProduct = '';
   }
 
-  // si esta función se ejecutara en el template: si hay algun ngBing qe cambia (por ejemplo el del input de keyboard) se lanzatra continuamente ---> PIPES!!! almacenan en memoria los los datos de salida en funcion de los mismos datos de entrada
+  // si esta función se ejecutara en el template: si hay property ngBing (por ejemplo el del input de keyboard) se lanzará continuamente
+  // ---> PIPES!!! almacenan en memoria los los datos de salida en función de los mismos datos de entrada
   calculateIndexFibonacci(index: number) {
     return this.algorithm.getFibonacciNumber(index);
   }

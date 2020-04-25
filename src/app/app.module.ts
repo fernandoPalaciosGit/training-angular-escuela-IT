@@ -9,6 +9,7 @@ import { ListComponent } from './components/list/list.component';
 import { FibonacciNumberPipe } from './pipes/fibonacci-number.pipe';
 import { ProductComponent } from './components/product/product.component';
 import { HighlightDirective } from './directives/highlight.directive';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { HighlightDirective } from './directives/highlight.directive';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
