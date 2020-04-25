@@ -7,13 +7,15 @@ import { FormsModule } from '@angular/forms';
 import { ProductComponent } from './product/product.component';
 import { DateformatPipe } from './pipes/dateformat.pipe';
 import { ListComponent } from './list/list.component';
+import { FibonacciNumberPipe } from './pipes/fibonacci-number.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductComponent,
     DateformatPipe,
-    ListComponent
+    ListComponent,
+    FibonacciNumberPipe
   ],
   imports: [
     BrowserModule,

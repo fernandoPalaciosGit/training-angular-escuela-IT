@@ -60,3 +60,11 @@ es una avariante del ngif que permite tener varios condicionales anidados, y ade
 
 ###  BROWSER MODULE
 contiene todas las directivas necesarias para renderizar en templates (ngif, ngswitch, ngfor).
+
+PIPES -> PERFORMANCE DE LA APLCIAOCAON
+un ejemplo claro para aplicar pipes en un NgModel binding a un input de control de foprmulario
+dependiendo de como sea la implementacion de su callback de evento, siempre se estara ejecutando el metodo porque su properti binding puede que se este manipulando todo el tiempo.
+Aqui aplicacremos pipes a partir de 2 concenpos
+    - Funciones puras: es una funcion que devuelve el mismo valor sin tener en cuenta los argumentos que le pases
+    - patron memoized : el resultado de un calculo se almacenara en cache para asociarlo al mismo tiopo de llamada
+    

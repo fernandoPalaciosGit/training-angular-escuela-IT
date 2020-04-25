@@ -1,0 +1,11 @@
+<label>
+  Add another product
+  <input type="text" [(ngModel)]="textProduct" (keydown.enter)="addProduct()">
+</label>
+
+<ul>
+  <li *ngFor="let product of productList; index as index">
+    <!--    {{product.text}} -> {{calculateIndexFibonacci(index)}}-->
+    {{product.text}} -> {{index | fibonacciNumber}}
+  </li>
+</ul>
