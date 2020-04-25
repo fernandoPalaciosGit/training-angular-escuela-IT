@@ -1,0 +1,12 @@
+<label>
+  Crea un nuevo todo:
+  <input type="text"
+         [(ngModel)]="selectedTodoText"
+         (keydown.enter)="createTodo()">
+</label>
+
+<div *ngFor="let todo of todos$ | async">
+  <app-todo [todo]="todo"
+            (deletedTodo)="deleteTodo($event)">
+  </app-todo>
+</div>

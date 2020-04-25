@@ -10,6 +10,8 @@ import { FibonacciNumberPipe } from './pipes/fibonacci-number.pipe';
 import { ProductComponent } from './components/product/product.component';
 import { HighlightDirective } from './directives/highlight.directive';
 import { HttpClientModule } from '@angular/common/http';
+import { TodoComponent } from './components/todo/todo.component';
+import { TodoListComponent } from './components/todo-list/todo-list.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { HttpClientModule } from '@angular/common/http';
     DateformatPipe,
     ListComponent,
     FibonacciNumberPipe,
-    HighlightDirective
+    HighlightDirective,
+    TodoComponent,
+    TodoListComponent
   ],
   imports: [
     BrowserModule,

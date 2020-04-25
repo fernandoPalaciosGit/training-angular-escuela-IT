@@ -16,7 +16,7 @@ export class ListComponent implements OnInit {
   productList: Product [] = [];
   textProduct: string;
   private readonly USER_NUMBER_LIST = 5;
-  private users$: Observable<Users[]>;
+  users$: Observable<Users[]>;
 
   constructor(
     private algorithm: AlgorithmService,

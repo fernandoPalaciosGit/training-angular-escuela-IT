@@ -83,3 +83,8 @@ esa dependencia se resuelve como unica para la aplcaicaion, es decir a traves de
 ### compatibilidad de los Servicios y Redux
 ambos coinciden en ser las entidades que capturan los datos a consumir por los componentes.
 Redux es un patron, con todas las entidades que lo conforman, que se encarga de persistir los datos de un componente a traves de Observables (stream de datos)
+
+### FOLDERS BY FEATURE
+es duna arquitectura de diseño de aplicacion, que permite estructurarlo por modulos
+modulo -> directivas , pipes, componentes....
+
