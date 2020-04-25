@@ -6,6 +6,6 @@
 <ul>
   <li *ngFor="let product of productList; index as index">
     <!--    {{product.text}} -> {{calculateIndexFibonacci(index)}}-->
-    {{product.text}} -> {{index | fibonacciNumber}}
+    {{product.text}} -> <span appHighlight>{{index | fibonacciNumber}}</span>
   </li>
 </ul>

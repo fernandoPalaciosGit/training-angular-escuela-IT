@@ -70,3 +70,13 @@ Aqui aplicacremos pipes a partir de 2 concenpos
     
 
 ### DIRECTIVAS
+recibe por argumento el elemento del DOM sobre el que aplica en el HTML
+se utiliza para modificar el comportamiento por defecto que tenga un elemento de HTML
+por ejemplo alguna funcionalidad nativa que querramos modificar
+o alguna nativa de angular que querramos modificar
+
+
+### INJECCION DE DEPENDENCIAS
+es el patron que angular utioliza para agregar instancias de cualquier miembro (servicio, pipe, componente, modulo....) a traves del constructor en los componentes
+esa dependencia se resuelve como unica para la aplcaicaion, es decir a traves de un singleton se comparte la misma referencia en memoria del miembro injectado.
+
