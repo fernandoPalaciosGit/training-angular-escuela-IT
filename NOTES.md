@@ -88,3 +88,10 @@ Redux es un patron, con todas las entidades que lo conforman, que se encarga de 
 es duna arquitectura de diseño de aplicacion, que permite estructurarlo por modulos
 modulo -> directivas , pipes, componentes....
 
+
+## PIDPES IPUROS Y PUROS
+IMPUROS: guardan un estado interno, que significa que los valores de entrasda se procesan internamente para devolver un valor diferente en cada ejecucion. Y no son compartidos en memoria, que quiere decir que cada vez que se referencia al pipe, es una referencia diferente
+
+PUROS: el valor de retorno guarda relacion con los valores de entrada, por lo que no tiene un estado interno del metodo. Esto permite compartirse, y asi actuar como un Singleton (misma referencia del Pipe, para cualquier llamada)
+
+JsonPipe, SlicePipe, AsyncPipe: son considerados puros , porque aunque puedan usarse para procesar un mismo objeto de entrada, Angular exige una conddicion mas para que el pipe pueda ser considerado como pupo (en este caso es un pipe nativo, asi que estan definidos como impuros), y es que deben se inmutables (las spropiedades de objetos guardan referencias en memoria reemplpazables, aunqmue este considerado como CONST)
