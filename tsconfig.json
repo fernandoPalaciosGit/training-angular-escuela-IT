@@ -16,6 +16,12 @@
       "dom"
     ],
     "paths": {
+      "@basics/*": [
+        "src/app/basics/*"
+      ],
+      "@product-user-list/*": [
+        "src/app/product-user-list/*"
+      ],
       "@todo-list/*": [
         "src/app/todo-list/*"
       ],
@@ -23,7 +29,7 @@
         "src/app/core/*"
       ],
       "@shares/*": [
-        "src/app/shares/*"
+        "src/app/shared/*"
       ]
     }
   },

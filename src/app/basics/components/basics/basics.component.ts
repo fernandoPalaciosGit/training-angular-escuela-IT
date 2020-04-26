@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RockBand } from '../../models/rock-band';
+import { RockBand } from '@basics/models/rock-band';
 
 @Component({
   selector: 'app-basics',

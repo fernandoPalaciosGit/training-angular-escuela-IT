@@ -1,15 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-import { BasicsRoutingModule } from './basics-routing.module';
-import { BasicsComponent } from './components/basics/basics.component';
-import { DateformatPipe } from '../shared/pipes/dateformat.pipe';
-import { SharedModule } from '../shared/shared.module';
-
+import { BasicsComponent } from '@basics/components/basics/basics.component';
+import { BasicsRoutingModule } from '@basics/basics-routing.module';
+import { SharedModule } from '@shares/shared.module';
 
 @NgModule({
   declarations: [
-    BasicsComponent,
+    BasicsComponent
   ],
   imports: [
     CommonModule,
@@ -17,4 +14,5 @@ import { SharedModule } from '../shared/shared.module';
     SharedModule
   ]
 })
-export class BasicsModule { }
+export class BasicsModule {
+}

@@ -1,4 +1,4 @@
-import { Product } from '../models/product';
+import { Product } from '@product-user-list/models/product';
 
 export const product: Product = {
   id: 'AAAA',

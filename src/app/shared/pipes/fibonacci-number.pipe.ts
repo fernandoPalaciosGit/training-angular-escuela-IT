@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { AlgorithmService } from '../services/algorithm.service';
+import { AlgorithmService } from '@shares/services/algorithm.service';
 
 @Pipe({
   name: 'fibonacciNumber'

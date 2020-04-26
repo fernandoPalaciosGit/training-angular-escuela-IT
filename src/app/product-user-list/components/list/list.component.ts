@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from '../../models/product';
-import { product } from '../../mocks/product';
-import { UsersService } from '../../services/users.service';
 import { Observable } from 'rxjs';
-import { Users } from '../../models/users';
-import { AlgorithmService } from '../../../shared/services/algorithm.service';
+import { Product } from '@product-user-list/models/product';
+import { Users } from '@product-user-list/models/users';
+import { AlgorithmService } from '@shares/services/algorithm.service';
+import { UsersService } from '@product-user-list/services/users.service';
+import { product } from '@product-user-list/mocks/product';
 
 @Component({
   selector: 'app-users',
