@@ -123,6 +123,8 @@ providers: se especifican en el script de modules, es la lista de injectables qu
 
 `shared`: modulo compartido que contiene todos los artefactos que se comparten entre modulos
 
+`onInit`: por buenas practicas es conveniente dejar el metodo de la interfa onInit, aunque sea vacia
+
 ### LIFT
 Locale (facil de identificar): con prefijos y sufijos del tipo de artefactos
 FLAT: lo mas pequeño, sencillo posible, por cada modulo, 2/3 directorios
@@ -131,3 +133,4 @@ T-DRY: try to be dry -> dont repeat yourself, reutilizar codigo
 
 ### SHORT IMPORTS
 para las rutas relativas -> tsconfig.json -> compileOptions
+

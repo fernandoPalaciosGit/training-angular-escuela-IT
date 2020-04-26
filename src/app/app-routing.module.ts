@@ -6,7 +6,7 @@ const routes: Routes = [{
   loadChildren: () => import('./todo-list/todo-list.module')
     .then((module) => module.TodoListModule)
 }, {
-  path: 'product-user-list',
+  path: 'item-list',
   loadChildren: () => import('./product-user-list/product-user-list.module')
     .then((module) => module.ProductUserListModule)
 }, {
