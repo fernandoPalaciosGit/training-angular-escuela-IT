@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../../models/product';
 import { product } from '../../mocks/product';
-import { AlgorithmService } from '../../services/algorithm.service';
 import { UsersService } from '../../services/users.service';
 import { Observable } from 'rxjs';
 import { Users } from '../../models/users';
+import { AlgorithmService } from '../../../shared/services/algorithm.service';
 
 @Component({
-  selector: 'app-list',
+  selector: 'app-users',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss']
 })

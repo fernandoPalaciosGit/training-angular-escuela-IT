@@ -101,3 +101,33 @@ Es un libreria del core de angular que permite lanzar request http manejadas con
 Agrega todas las interfaces necesarias para contruir una REST API
 Al ser manejadas como stream de datos asincronos (Observables sobre fetch), se  deben resolver por suscripcion al Observable,
 ya sea por ().subscribe() en el componente o por el AsyncPipe en el template
+
+### MODULOS
+Estructura de conrtol de features -> Folder by feature -> LIFT
+Normalmente se crea un modulo por escenario, y por ruta
+
+
+### Folder by feature
+Se trata de que cada interfaz de UI tenga su modulo.
+por ejemplo el listado de resultados: lista de resultados con cada item e informacion
+resumen de resultados: paginamcion, resultado de filtros y ordenacion
+filtros
+ 
+Modularizatr trae beneficios en performance: 
+scripts que carga by default Angular: main.js, polifills.js, numtime.js, syles.js, vemdors.js
+
+main.js -> donde residen nuestros componentes -> este main solo tiene el contenido de los comsponentes que se cargan
+
+providers: se especifican en el script de modules, es la lista de injectables que permite especificar el ambito solo para ese modulo -> de esta manera le podemos eliminar el 
+@Injectable({provider : "root"}) 
+
+`shared`: modulo compartido que contiene todos los artefactos que se comparten entre modulos
+
+### LIFT
+Locale (facil de identificar): con prefijos y sufijos del tipo de artefactos
+FLAT: lo mas pequeño, sencillo posible, por cada modulo, 2/3 directorios
+T-DRY: try to be dry -> dont repeat yourself, reutilizar codigo
+
+
+### SHORT IMPORTS
+para las rutas relativas -> tsconfig.json -> compileOptions

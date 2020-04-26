@@ -1,11 +1,9 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Todos } from '../models/todos';
+import { Todos } from '@todo-list/models/todos';
+import { Injectable } from '@angular/core';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class TodosService {
   readonly API = 'http://localhost:4000';
   readonly RESOURCE = 'todos';

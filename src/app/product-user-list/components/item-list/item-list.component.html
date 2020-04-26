@@ -1,0 +1,11 @@
+<h2 *ngIf="!!productSelected">
+  selected product: {{productSelected.id}}
+</h2>
+
+<app-product
+  *ngFor="let product of productList"
+  (selectedProduct)="showProductSelected($event)"
+  [product]="product">
+</app-product>
+<app-users>
+</app-users>

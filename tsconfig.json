@@ -14,7 +14,18 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "@todo-list/*": [
+        "src/app/todo-list/*"
+      ],
+      "@core/*": [
+        "src/app/core/*"
+      ],
+      "@shares/*": [
+        "src/app/shares/*"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
