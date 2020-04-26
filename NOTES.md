@@ -95,3 +95,9 @@ IMPUROS: guardan un estado interno, que significa que los valores de entrasda se
 PUROS: el valor de retorno guarda relacion con los valores de entrada, por lo que no tiene un estado interno del metodo. Esto permite compartirse, y asi actuar como un Singleton (misma referencia del Pipe, para cualquier llamada)
 
 JsonPipe, SlicePipe, AsyncPipe: son considerados puros , porque aunque puedan usarse para procesar un mismo objeto de entrada, Angular exige una conddicion mas para que el pipe pueda ser considerado como pupo (en este caso es un pipe nativo, asi que estan definidos como impuros), y es que deben se inmutables (las spropiedades de objetos guardan referencias en memoria reemplpazables, aunqmue este considerado como CONST)
+
+### HTTPCLIENT
+Es un libreria del core de angular que permite lanzar request http manejadas con observables
+Agrega todas las interfaces necesarias para contruir una REST API
+Al ser manejadas como stream de datos asincronos (Observables sobre fetch), se  deben resolver por suscripcion al Observable,
+ya sea por ().subscribe() en el componente o por el AsyncPipe en el template

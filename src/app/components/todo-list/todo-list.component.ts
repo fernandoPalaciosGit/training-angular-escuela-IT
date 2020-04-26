@@ -18,19 +18,21 @@ export class TodoListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.resetTodos();
+  }
+
+  private resetTodos() {
     this.todos$ = this.todosService.getAllTodos();
   }
 
   deleteTodo(idTodo: number) {
-    this.todosService.deleteTodo(idTodo);
+    this.todosService.deleteTodo(idTodo)
+      .subscribe(this.resetTodos.bind(this));
   }
 
   createTodo() {
     this.todosService.createTodo({
-      id: 654,
-      title: this.selectedTodoText,
-      body: this.selectedTodoText,
-      userId: 654
-    });
+      title: this.selectedTodoText
+    }).subscribe(this.resetTodos.bind(this));
   }
 }

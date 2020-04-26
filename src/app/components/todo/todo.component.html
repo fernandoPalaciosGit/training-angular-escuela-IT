@@ -1,7 +1,7 @@
 <div>
   <span>{{todo.title}}</span>
   <button id="{{todo.id}}"
-          (click)="deleteTodo()">
+          (click)="deletedTodo.emit(todo.id)">
     remove
   </button>
 </div>

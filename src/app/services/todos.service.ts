@@ -7,7 +7,7 @@ import { Todos } from '../models/todos';
   providedIn: 'root'
 })
 export class TodosService {
-  readonly API = 'https://jsonplaceholder.typicode.com/todos';
+  readonly API = 'http://localhost:4000';
 
   constructor(
     private httpClient: HttpClient
@@ -15,7 +15,7 @@ export class TodosService {
   }
 
   private getURLTodos(): string {
-    return this.API;
+    return `${ this.API }/todos`;
   }
 
   getTodoById(id): string {
@@ -30,7 +30,7 @@ export class TodosService {
     return this.httpClient.delete(this.getTodoById(id));
   }
 
-  createTodo(todo: Todos) {
-    return this.httpClient.post(this.getURLTodos(), todo);
+  createTodo(todo: Todos): Observable<Todos> {
+    return this.httpClient.post<Todos>(this.getURLTodos(), todo);
   }
 }
