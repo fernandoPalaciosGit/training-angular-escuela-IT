@@ -8,6 +8,7 @@ import { Todos } from '../models/todos';
 })
 export class TodosService {
   readonly API = 'http://localhost:4000';
+  readonly RESOURCE = 'todos';
 
   constructor(
     private httpClient: HttpClient
@@ -15,7 +16,7 @@ export class TodosService {
   }
 
   private getURLTodos(): string {
-    return `${ this.API }/todos`;
+    return `${ this.API }/${ this.RESOURCE }`;
   }
 
   getTodoById(id): string {
@@ -32,5 +33,9 @@ export class TodosService {
 
   createTodo(todo: Todos): Observable<Todos> {
     return this.httpClient.post<Todos>(this.getURLTodos(), todo);
+  }
+
+  updateTodo(todo: Todos) {
+    return this.httpClient.patch<Todos>(this.getTodoById(todo.id), todo);
   }
 }

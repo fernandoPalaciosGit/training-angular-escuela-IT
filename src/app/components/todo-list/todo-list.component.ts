@@ -35,4 +35,9 @@ export class TodoListComponent implements OnInit {
       title: this.selectedTodoText
     }).subscribe(this.resetTodos.bind(this));
   }
+
+  updateTodo(todo: Todos) {
+    this.todosService.updateTodo(todo)
+      .subscribe(this.resetTodos.bind(this));
+  }
 }

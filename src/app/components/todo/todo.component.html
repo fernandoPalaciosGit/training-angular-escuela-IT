@@ -1,7 +1,12 @@
 <div>
+  <input type="checkbox" name="" id="todo-completed-{{todo.id}}" [(ngModel)]="todo.completed">
   <span>{{todo.title}}</span>
   <button id="{{todo.id}}"
           (click)="deletedTodo.emit(todo.id)">
     remove
+  </button>
+  <button
+    (click)="updateTodo.emit(todo)">
+    Update
   </button>
 </div>
