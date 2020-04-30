@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { NotFoundComponent } from '@shares/components/not-found/not-found.component';
 
 const routes: Routes = [{
   path: '',
@@ -17,10 +18,12 @@ const routes: Routes = [{
   path: 'basics',
   loadChildren: () => import('./basics/basics.module')
     .then((module) => module.BasicsModule)
+}, {
+  path: '**',
+  component: NotFoundComponent
 }];
 
 @NgModule({
-  // todo: PreloadAllModules
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })

@@ -147,3 +147,22 @@ tenemos 2 mmanneras de pasar parametros a traves de las rutas
 ### NAVEGACION
 - ROUTER: por injeccion en los componentes
 - ROUTER LINK: es una directiva que se asigna a calquier link o input que lanza el Router
+
+### RUTA VACIA
+Es buena practica (por SEO y ya que se suele compartir las webs a la ruta por defecto) definir una redireccion a la ruta de la Home, que en nustra SPA cargará una ruta y componente adecuados
+```javascript
+const routes: Routes = [{
+  path: '',
+  redirectTo: 'todo-list',
+  pathMatch: 'full'
+}]
+``` 
+
+### RUTA POR DEFECTO O 404
+```javascript
+const routes: Routes = [{
+  path: '**',
+  component: NotFoundComponent,
+}]
+``` 
+
