@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
-import { mergeMap } from 'rxjs/operators';
+import { flatMap } from 'rxjs/operators';
 import { ProductApi } from '@product-user-list/models/product';
 import { ProductListApiService } from '@product-user-list/services/product-list-api.service';
 
@@ -18,8 +18,8 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.productRequest$.params.subscribe((param: Params) => {
-      this.product$ = this.productListApiService.getProduct(param.id);
-    });
+    this.product$ = this.productRequest$.params.pipe(
+      flatMap((param) => this.productListApiService.getProduct(param.id))
+    );
   }
 }
