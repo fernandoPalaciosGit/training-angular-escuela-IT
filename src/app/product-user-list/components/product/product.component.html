@@ -14,6 +14,10 @@
     <h5>{{ product.price | currency | uppercase }}</h5>
     <p>{{ product.text }}</p>
     <p>{{ today | date:'yyyy.MM.dd' }}</p>
-    <button (click)="selectedProductApi.emit(product)">ver el detalle</button>
+    <button
+      (click)="selectedProductApi.emit(product)">
+      <!--          [routerLink]="['./', product.id]">-->
+      ver el detalle
+    </button>
   </div>
 </div>

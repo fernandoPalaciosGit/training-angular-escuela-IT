@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Product, ProductApi } from '@product-user-list/models/product';
 import { ProductService } from '@product-user-list/services/product.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-item-list',
@@ -11,7 +12,10 @@ export class ItemListComponent implements OnInit {
   productList: Product[] = [];
   productSelected: Product;
 
-  constructor(private productService: ProductService) {
+  constructor(
+    private productService: ProductService,
+    private route: Router
+  ) {
   }
 
   ngOnInit(): void {
@@ -24,6 +28,6 @@ export class ItemListComponent implements OnInit {
   }
 
   navigateRouteProduct(product: ProductApi) {
-    alert(`navigate to route with query: product${ product.id }`);
+    this.route.navigate(['/item-list/products', product.id]);
   }
 }

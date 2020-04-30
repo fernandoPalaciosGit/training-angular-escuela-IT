@@ -5,13 +5,13 @@ import { ListComponent } from '@product-user-list/components/list/list.component
 import { ProductDetailsComponent } from '@product-user-list/components/product-details/product-details.component';
 
 const routes: Routes = [{
+  path: 'users',
+  component: ListComponent
+}, {
   path: 'products',
   component: ItemListComponent
 }, {
-  path: 'users',
-  component: ListComponent
-} , {
-  path: ':id',
+  path: 'products/:id',
   component: ProductDetailsComponent
 }];
 
@@ -19,4 +19,5 @@ const routes: Routes = [{
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class ProductUserListRoutingModule { }
+export class ProductUserListRoutingModule {
+}

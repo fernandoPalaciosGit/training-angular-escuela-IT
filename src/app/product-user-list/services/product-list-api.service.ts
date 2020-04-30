@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ProductApi } from '@product-user-list/models/product';
 import { Observable } from 'rxjs';
-import { concatAll, concatMap, filter, first, flatMap, map, take, takeLast } from 'rxjs/operators';
+import { filter, flatMap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'

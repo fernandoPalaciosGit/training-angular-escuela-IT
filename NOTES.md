@@ -134,3 +134,16 @@ T-DRY: try to be dry -> dont repeat yourself, reutilizar codigo
 ### SHORT IMPORTS
 para las rutas relativas -> tsconfig.json -> compileOptions
 
+
+### REDIRECCIONES POR PARAMETROS
+tenemos 2 mmanneras de pasar parametros a traves de las rutas
+- params: es como asignar una ruta pero el nombre del recurso para la nueva ruta, se asigna a un parametro que recibiremos a traves de la injeccion de Router en el componente mque se carga
+    - RUTA: '/products/:id'
+    - URL: http://www.localhost/products/123
+    - PARAM: {id: 123} 
+- query: se utiliza para inicializar la ruta con varios parametros -> se enviaran por GET en la request de la nueva ruta
+
+
+### NAVEGACION
+- ROUTER: por injeccion en los componentes
+- ROUTER LINK: es una directiva que se asigna a calquier link o input que lanza el Router
