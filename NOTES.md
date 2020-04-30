@@ -166,3 +166,10 @@ const routes: Routes = [{
 }]
 ``` 
 
+
+### PRECARGA DE MODULOS
+- es una practica basica el cargar cada modulo asignado a una ruta de manera lazy, asi solo descargamos en la SPA los scripts que corresponden a ala secion del routing que se esta utilizando
+- este lazy module es perjudicial en redes o dispositivos de carga lenta porque el hecho de descargar un script de pagina detiene la interaccion de usuario
+- para estps casos (y solo en los que se deba justificar la precarga de scrips) se puede parametrizar el RouterModule.forroute, con una {preloadingStrategy} . Hay de varios tipos: 
+- {preloadingStrategy :PreloadAllModules}: una vez que el navegador se liberer de las descargas necesarias para la ruta actual, empezará a descargar los scripts de los NModulos de las demas rutas. De esta manera, al ya estar precargados, al navegar a otras rutas, no causara bloqueo de interaccion de usuario. 
+- {preloadingStrategy :PreloadingStrategy}: se define una serie de Modulos que se cargaran de inmediato a que el navegador libere recursos.
