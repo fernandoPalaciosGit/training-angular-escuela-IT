@@ -1,5 +1,19 @@
+<!--
 <div>
-  <h2>{{product.text}} --> {{product.price}} </h2>
+  <h2>{{product.text}} &ndash;&gt; {{product.price}} </h2>
   <button (click)="selectProduct()">select</button>
   <img src="{{product.image}}" alt="product"/>
+</div>
+
+-->
+<div class="container-products">
+  <div class="product-item"
+       *ngFor="let product of productListApi$ | async">
+    <h1>{{ product.title | uppercase }}</h1>
+    <img [src]="product.image" alt="">
+    <h5>{{ product.price | currency | uppercase }}</h5>
+    <p>{{ product.text }}</p>
+    <p>{{ today | date:'yyyy.MM.dd' }}</p>
+    <button (click)="selectedProductApi.emit(product)">ver el detalle</button>
+  </div>
 </div>

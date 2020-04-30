@@ -1,5 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Product } from '@product-user-list/models/product';
+import { Product, ProductApi } from '@product-user-list/models/product';
+import { ProductListApiService } from '@product-user-list/services/product-list-api.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-product',
@@ -9,11 +11,15 @@ import { Product } from '@product-user-list/models/product';
 export class ProductComponent implements OnInit {
   @Input() product: Product;
   @Output() selectedProduct = new EventEmitter<Product>();
+  @Output() selectedProductApi = new EventEmitter<ProductApi>();
+  productListApi$: Observable<ProductApi[]>;
+  today: Date = new Date();
 
-  constructor() {
+  constructor(private productService: ProductListApiService) {
   }
 
   ngOnInit(): void {
+    this.productListApi$ = this.productService.getAllProducts();
   }
 
   selectProduct() {

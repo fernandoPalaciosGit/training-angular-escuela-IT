@@ -9,12 +9,15 @@ import { SharedModule } from '@shares/shared.module';
 import { HttpClientModule } from '@angular/common/http';
 import { UsersService } from '@product-user-list/services/users.service';
 import { ProductService } from '@product-user-list/services/product.service';
+import { ProductListApiService } from '@product-user-list/services/product-list-api.service';
+import { ProductDetailsComponent } from './components/product-details/product-details.component';
 
 @NgModule({
   declarations: [
     ItemListComponent,
     ProductComponent,
-    ListComponent
+    ListComponent,
+    ProductDetailsComponent
   ],
   imports: [
     CommonModule,
@@ -24,6 +27,7 @@ import { ProductService } from '@product-user-list/services/product.service';
     SharedModule
   ],
   providers: [
+    ProductListApiService,
     ProductService,
     UsersService
   ]

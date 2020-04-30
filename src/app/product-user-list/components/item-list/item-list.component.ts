@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from '@product-user-list/models/product';
+import { Product, ProductApi } from '@product-user-list/models/product';
 import { ProductService } from '@product-user-list/services/product.service';
 
 @Component({
@@ -21,5 +21,9 @@ export class ItemListComponent implements OnInit {
 
   showProductSelected(product: Product) {
     this.productSelected = product;
+  }
+
+  navigateRouteProduct(product: ProductApi) {
+    alert(`navigate to route with query: product${ product.id }`);
   }
 }

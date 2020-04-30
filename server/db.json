@@ -30,5 +30,26 @@
       "title": "laboriosam mollitia et enim quasi adipisci quia provident illum",
       "completed": false
     }
-  ]
+  ],
+  "products": [{
+    "id": 1,
+    "title": "Producto 1",
+    "price": 200,
+    "text": "bla bl bla blsd sd sdjsdkjsd sdksjdkklsd kljsd",
+    "image": "assets/images/img1.jpeg"
+  },
+    {
+      "id": 2,
+      "title": "Producto 2",
+      "price": 200,
+      "text": "sdklfjsaf dfklasdfa sdfsd fsdaklfjsadfsdfklsdjfasd fsadklfjdsaf sdaflksdjafasdlñkf dsfkjas",
+      "image": "assets/images/img2.jpeg"
+    },
+    {
+      "id": 3,
+      "title": "Producto 3",
+      "price": 200,
+      "text": "supe desatyno",
+      "image": "assets/images/img3.jpeg"
+    }]
 }

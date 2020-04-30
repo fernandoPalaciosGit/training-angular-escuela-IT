@@ -5,5 +5,6 @@
 <app-product
   *ngFor="let product of productList"
   (selectedProduct)="showProductSelected($event)"
+  (selectedProductApi)="navigateRouteProduct($event)"
   [product]="product">
 </app-product>
