@@ -6,18 +6,50 @@
 </div>
 
 -->
-<div class="container-products">
-  <div class="product-item"
-       *ngFor="let product of productListApi$ | async">
-    <h1>{{ product.title | uppercase }}</h1>
-    <img [src]="product.image" alt="">
-    <h5>{{ product.price | currency | uppercase }}</h5>
-    <p>{{ product.text }}</p>
-    <p>{{ today | date:'yyyy.MM.dd' }}</p>
-    <button
-      (click)="selectedProductApi.emit(product)">
-      <!--          [routerLink]="['./', product.id]">-->
-      ver el detalle
-    </button>
-  </div>
-</div>
+
+<mat-grid-list cols="3">
+  <mat-grid-tile
+    *ngFor="let product of productListApi$ | async">
+    <mat-card>
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>{{ product.title | uppercase }}</mat-card-title>
+        <mat-card-subtitle>price: {{ product.price | currency | uppercase }}</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image [src]="product.image" alt="{{product.title}}">
+      <mat-card-content>
+        <p>{{ product.text }}</p>
+        <p>{{ today | date:'yyyy.MM.dd' }}</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="primary"
+                (click)="selectedProductApi.emit(product)">
+          <!--          [routerLink]="['./', product.id]">-->
+          View details
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
+
+<!--<div class="container-products">-->
+<!--  <mat-card class="product-item">-->
+<!--    <mat-card-header>-->
+<!--      <div mat-card-avatar class="example-header-image"></div>-->
+<!--      <mat-card-title>{{ product.title | uppercase }}</mat-card-title>-->
+<!--      <mat-card-subtitle>price: {{ product.price | currency | uppercase }}</mat-card-subtitle>-->
+<!--    </mat-card-header>-->
+<!--    <img mat-card-image [src]="product.image" alt="{{product.title}}">-->
+<!--    <mat-card-content>-->
+<!--      <p>{{ product.text }}</p>-->
+<!--      <p>{{ today | date:'yyyy.MM.dd' }}</p>-->
+<!--    </mat-card-content>-->
+<!--    <mat-card-actions>-->
+<!--      <button mat-raised-button color="primary"-->
+<!--              (click)="selectedProductApi.emit(product)">-->
+<!--        &lt;!&ndash;          [routerLink]="['./', product.id]">&ndash;&gt;-->
+<!--        View details-->
+<!--      </button>-->
+<!--    </mat-card-actions>-->
+<!--  </mat-card>-->
+<!--</div>-->
