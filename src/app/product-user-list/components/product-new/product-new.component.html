@@ -1,0 +1,34 @@
+<form [formGroup]="productForm" novalidate (ngSubmit)="onSubmitForm()">
+  <div>
+    <label for="productTitle">Title</label>
+    <input type="text" id="productTitle" formControlName="productTitle"/>
+  </div>
+  <div>
+    <label for="productFile">Attached File</label>
+    <input type="file" id="productFile" formControlName="productFile"/>
+  </div>
+  <div>
+    <label for="productPrice">Price</label>
+    <input type="number" id="productPrice" formControlName="productPrice"/>
+  </div>
+  <div>
+    <label for="productInfo">Information about product</label><br/>
+    <textarea id="productInfo" formControlName="productInfo"></textarea>
+
+    <div style="color: red"
+         *ngIf="productInfo.invalid && productInfo.dirty">
+      <span>Validation productInfo</span>
+      <pre>{{productInfo.errors | json}}</pre>
+    </div>
+  </div>
+  <div>
+    <input type="submit" value="Guardar producto"
+    [disabled]="productForm.invalid && 'true'">
+  </div>
+
+  <div *ngIf="productForm.dirty"
+       style="color: cornflowerblue">
+    <span>Enlace de datos</span>
+    <pre>{{productForm.valueChanges | async | json}}</pre>
+  </div>
+</form>

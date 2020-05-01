@@ -11,13 +11,15 @@ import { UsersService } from '@product-user-list/services/users.service';
 import { ProductService } from '@product-user-list/services/product.service';
 import { ProductListApiService } from '@product-user-list/services/product-list-api.service';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
+import { ProductNewComponent } from './components/product-new/product-new.component';
 
 @NgModule({
   declarations: [
     ItemListComponent,
     ProductComponent,
     ListComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    ProductNewComponent
   ],
   imports: [
     CommonModule,
