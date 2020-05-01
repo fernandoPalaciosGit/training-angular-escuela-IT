@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { FormControl, Validators } from '@angular/forms';
-import { debounce, debounceTime, tap } from 'rxjs/operators';
+import { debounceTime } from 'rxjs/operators';
+import { ContactValidators } from '../validators/contact-validators';
 
 @Component({
   selector: 'app-contact-user-form',
@@ -12,20 +13,22 @@ export class ContactUserFormComponent implements OnInit {
   readonly placeHolderEmail: string = '@gmail';
   userEmail: FormControl;
   userEmailData$: Observable<string>;
+  userName: FormControl;
 
   constructor() {
   }
 
   ngOnInit(): void {
-    this.initEmail();
+    this.initUserEmail();
+    this.initUserName();
   }
 
-  private initEmail() {
+  private initUserEmail() {
     const validations = [
       Validators.required,
       Validators.minLength(10),
       Validators.maxLength(15),
-      Validators.email,
+      Validators.email
     ];
     // this.userEmail = new FormControl(this.placeHolderEmail, validations);// con un valor inicial
     this.userEmail = new FormControl('', validations);
@@ -37,5 +40,10 @@ export class ContactUserFormComponent implements OnInit {
 
   private sendEmailRequestToServer(emailData) {
     console.info(this.userEmail.valid, emailData.length);
+  }
+
+  private initUserName() {
+    const validators = [ContactValidators.isUserNando];
+    this.userName = new FormControl('', validators);
   }
 }

@@ -1,22 +1,35 @@
 <div>
-  <label for=""></label>
-  <input type="email" name="" id="" [formControl]="userEmail"/>
+  <label for="contact-user-email"></label>
+  <input type="email" name="userEmail" id="contact-user-email" [formControl]="userEmail"/>
   <button [disabled]="userEmail.invalid && 'true'">Enviar</button>
   <div *ngIf="userEmail.invalid && userEmail.dirty">
     <p *ngIf="userEmail.errors['required']">
       se require un email de contacto
     </p>
-    <p *ngIf="userEmail.errors['minlength']">
+    <p *ngIf="userEmail.hasError('minlength')">
       minimo numero de caracteres: {{userEmail.errors['minlength'].requiredLength}}
     </p>
-    <p *ngIf="userEmail.errors['maxlength']">
+    <p *ngIf="userEmail.hasError('maxlength')">
       maximo numero de caracteres: {{userEmail.errors['maxlength'].requiredLength}}
     </p>
-    <p *ngIf="userEmail.errors['email']">Esto no es un Email valido</p>
-<!--    <pre>{{ userEmail.errors | json}}</pre>-->
+    <p *ngIf="userEmail.hasError('email')">Esto no es un Email valido</p>
+    <!--    <pre>{{ userEmail.errors | json}}</pre>-->
+  </div>
+  <div style="color: red">
+    enlace de datos del email: {{userEmailData$ | async }}
   </div>
 </div>
 
+<hr/>
+
 <div>
-  enlace de datos: {{userEmailData$ | async }}
+  <label for="contact-user-name"></label>
+  <input type="text" name="userName" id="contact-user-name" [formControl]="userName"/>
+  <button [disabled]="userName.invalid && 'true'">Enviar</button>
+  <div *ngIf="userName.invalid && userName.dirty">
+    <p *ngIf="userName.hasError('isUserNando')">Tu no te llamas Nando</p>
+  </div>
+  <div style="color: red">
+    enlace de datos del userName: {{userName.valueChanges | async }}
+  </div>
 </div>
