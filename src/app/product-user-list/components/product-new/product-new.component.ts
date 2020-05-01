@@ -12,7 +12,8 @@ export class ProductNewComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder
   ) {
-    // todo: es necesario inicializar el formulario en el constructor
+    // todo: es necesario inicializar el formulario en el constructor,
+    //  porque tiene que estar instanciado antes de que es renderice el componente en pantalla (antes de ejecutarse el ngOnInit)
     this.productForm = this.formBuilder.group({
       productTitle: ['', Validators.required],
       productFile: [''],
