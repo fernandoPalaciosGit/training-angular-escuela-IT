@@ -6,6 +6,7 @@ import { TodoComponent } from '@todo-list/components/todo/todo.component';
 import { TodosService } from '@todo-list/services/todos.service';
 import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from '@shares/shared.module';
+import { MaterialModule } from '@shares/material.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { SharedModule } from '@shares/shared.module';
     CommonModule,
     TodoListRoutingModule,
     HttpClientModule,
-    SharedModule
+    SharedModule,
+    MaterialModule
   ],
   providers: [
     TodosService

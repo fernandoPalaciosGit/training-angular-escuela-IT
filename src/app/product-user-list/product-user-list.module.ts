@@ -12,6 +12,7 @@ import { ProductService } from '@product-user-list/services/product.service';
 import { ProductListApiService } from '@product-user-list/services/product-list-api.service';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { ProductNewComponent } from './components/product-new/product-new.component';
+import { MaterialModule } from '@shares/material.module';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ProductNewComponent } from './components/product-new/product-new.compon
     ProductUserListRoutingModule,
     FormsModule,
     HttpClientModule,
-    SharedModule
+    SharedModule,
+    MaterialModule
   ],
   providers: [
     ProductListApiService,
