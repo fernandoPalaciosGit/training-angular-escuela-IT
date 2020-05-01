@@ -1,0 +1,22 @@
+<div>
+  <label for=""></label>
+  <input type="email" name="" id="" [formControl]="userEmail"/>
+  <button [disabled]="userEmail.invalid && 'true'">Enviar</button>
+  <div *ngIf="userEmail.invalid && userEmail.dirty">
+    <p *ngIf="userEmail.errors['required']">
+      se require un email de contacto
+    </p>
+    <p *ngIf="userEmail.errors['minlength']">
+      minimo numero de caracteres: {{userEmail.errors['minlength'].requiredLength}}
+    </p>
+    <p *ngIf="userEmail.errors['maxlength']">
+      maximo numero de caracteres: {{userEmail.errors['maxlength'].requiredLength}}
+    </p>
+    <p *ngIf="userEmail.errors['email']">Esto no es un Email valido</p>
+<!--    <pre>{{ userEmail.errors | json}}</pre>-->
+  </div>
+</div>
+
+<div>
+  enlace de datos: {{userEmailData$ | async }}
+</div>

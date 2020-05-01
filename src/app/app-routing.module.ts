@@ -19,13 +19,17 @@ const routes: Routes = [{
   loadChildren: () => import('./basics/basics.module')
     .then((module) => module.BasicsModule)
 }, {
+  path: 'contact',
+  loadChildren: () => import('./contact/contact.module')
+    .then((module) => module.ContactModule)
+}, {
   path: '**',
   component: NotFoundComponent
 }];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, {
-    preloadingStrategy: PreloadingStrategy
+    // preloadingStrategy: PreloadingStrategy
   })],
   exports: [RouterModule]
 })

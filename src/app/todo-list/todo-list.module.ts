@@ -4,22 +4,23 @@ import { TodoListRoutingModule } from './todo-list-routing.module';
 import { TodoListComponent } from '@todo-list/components/todo-list/todo-list.component';
 import { TodoComponent } from '@todo-list/components/todo/todo.component';
 import { TodosService } from '@todo-list/services/todos.service';
-import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { SharedModule } from '@shares/shared.module';
 
 @NgModule({
   declarations: [
     TodoListComponent,
-    TodoComponent,
+    TodoComponent
   ],
   imports: [
     CommonModule,
     TodoListRoutingModule,
-    FormsModule,
     HttpClientModule,
+    SharedModule
   ],
   providers: [
     TodosService
   ]
 })
-export class TodoListModule { }
+export class TodoListModule {
+}

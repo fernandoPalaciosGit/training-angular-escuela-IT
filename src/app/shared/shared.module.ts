@@ -4,6 +4,7 @@ import { DateformatPipe } from './pipes/dateformat.pipe';
 import { FibonacciNumberPipe } from './pipes/fibonacci-number.pipe';
 import { HighlightDirective } from '@shares/directives/highlight.directive';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,10 +16,14 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
   exports: [
     DateformatPipe,
     FibonacciNumberPipe,
-    HighlightDirective
+    HighlightDirective,
+    FormsModule,
+    ReactiveFormsModule
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class SharedModule {

@@ -173,3 +173,23 @@ const routes: Routes = [{
 - para estps casos (y solo en los que se deba justificar la precarga de scrips) se puede parametrizar el RouterModule.forroute, con una {preloadingStrategy} . Hay de varios tipos: 
 - {preloadingStrategy :PreloadAllModules}: una vez que el navegador se liberer de las descargas necesarias para la ruta actual, empezará a descargar los scripts de los NModulos de las demas rutas. De esta manera, al ya estar precargados, al navegar a otras rutas, no causara bloqueo de interaccion de usuario. 
 - {preloadingStrategy :PreloadingStrategy}: se define una serie de Modulos que se cargaran de inmediato a que el navegador libere recursos.
+
+
+### NGmodel versus Formularios reactivos
+El ngmodel es una directiva que permite sincronizar un control con una propiedad del componente (ENLACE DE DATOS). Pero consume muchos recursos porque tiene que hacer varias validaciones
+
+Fromularios Reactivos: se trata de un enlace de datos para controles de Formularios cuya logica queda dentro del controlador
+mejor control de la logica aislada , y facilmente testeable por unitarios.
+no consume tanmtos recursos como el NgModel
+
+El enlace de datos se activa on demand, se tiene que asociar (esto ahorra muchos recursos)
+el enlace de datos es un Observable
+
+- {valueChanges} -> enlace de datos -> suscripmcion a los cambios del stream de datos en su observable
+- Validacion: validacion nativa de Angular
+- son dos elementos que podemos controlar independientemente: el Formcontrol y su enlace de datos
+Podemos acceder a todas las prokpiedades del FormControl en cualquier momento desde el template
+- Factor de usabilidad: para las validaciones: anormalmente las validacinoes deberian aplicarse desde que el usuario inicializa interaccion sobre cualquier control, esto significa que aunquue no cumpla desde el proincipio las reglas de validacion aplicadas, NO deberiamos mostrar el/los mensajes de errores de validacion. Para eso tenemos 2 marcadores booleanos de cada con Control
+    - dirty: el control se ha inicializado
+    - pristine: el control aun no se ha manipulado 
+- Podemos acceder al tipo de error cuando el formulario es invalido
