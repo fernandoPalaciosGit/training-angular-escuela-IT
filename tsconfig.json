@@ -30,6 +30,9 @@
       ],
       "@shares/*": [
         "src/app/shared/*"
+      ],
+      "@contact/*": [
+        "src/app/contact/*"
       ]
     }
   },

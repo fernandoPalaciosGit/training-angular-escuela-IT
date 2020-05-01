@@ -193,3 +193,7 @@ Podemos acceder a todas las prokpiedades del FormControl en cualquier momento de
     - dirty: el control se ha inicializado
     - pristine: el control aun no se ha manipulado 
 - Podemos acceder al tipo de error cuando el formulario es invalido
+
+### Manejo de validaciones asyncronas
+ocurre el caso de que el valor asignado a nuestro control debe validarse con una fuente de datos externa a la aplicacion 
+class FormControl(initvalue: string, syncValidations: ValidatorFn[], asyncValidations: AsyncValidatorFn[]) 

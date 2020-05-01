@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { FormControl, Validators } from '@angular/forms';
 import { debounceTime } from 'rxjs/operators';
-import { ContactValidators } from '../validators/contact-validators';
+import { ContactValidators } from '@contact/validators/contact-validators';
 
 @Component({
   selector: 'app-contact-user-form',
