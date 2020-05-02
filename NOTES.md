@@ -197,3 +197,11 @@ Podemos acceder a todas las prokpiedades del FormControl en cualquier momento de
 ### Manejo de validaciones asyncronas
 ocurre el caso de que el valor asignado a nuestro control debe validarse con una fuente de datos externa a la aplicacion 
 class FormControl(initvalue: string, syncValidations: ValidatorFn[], asyncValidations: AsyncValidatorFn[]) 
+
+## Viewport observers :  BREAKPOINTS NATIVOS DE ANGULAR
+const isHandset$: Observer<boolean> = 
+    this.breakpointObserver.observe(Breakpoints.Handset)
+    .pipe(
+        map((result) => result.matches),
+        shareReplay()
+    )
