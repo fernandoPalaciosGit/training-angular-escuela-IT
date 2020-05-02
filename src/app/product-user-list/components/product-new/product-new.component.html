@@ -1,34 +1,56 @@
-<form [formGroup]="productForm" novalidate (ngSubmit)="onSubmitForm()">
-  <div>
-    <label for="productTitle">Title</label>
-    <input type="text" id="productTitle" formControlName="productTitle"/>
-  </div>
-  <div>
-    <label for="productFile">Attached File</label>
-    <input type="file" id="productFile" formControlName="productFile"/>
-  </div>
-  <div>
-    <label for="productPrice">Price</label>
-    <input type="number" id="productPrice" formControlName="productPrice"/>
-  </div>
-  <div>
-    <label for="productInfo">Information about product</label><br/>
-    <textarea id="productInfo" formControlName="productInfo"></textarea>
+<mat-card class="product-new-wrapper">
+  <mat-card-header>
+    <mat-card-title>Create new product</mat-card-title>
+  </mat-card-header>
+  <form novalidate
+        [formGroup]="productForm" (ngSubmit)="onSubmitForm()">
+    <mat-card-content class="product-new-form"
+                      #tooltip="matTooltip"
+                      matTooltip="{{productForm.valueChanges | async | jsonParseString}}"
+                      matTooltipPosition="below">
+      <mat-form-field appearance="fill">
+        <mat-label>
+          <label for="productTitle">Title</label>
+        </mat-label>
+        <input matInput type="text" id="productTitle"
+               placeholder="some reference of product"
+               formControlName="productTitle"/>
+      </mat-form-field>
 
-    <div style="color: red"
-         *ngIf="productInfo.invalid && productInfo.dirty">
-      <span>Validation productInfo</span>
-      <pre>{{productInfo.errors | json}}</pre>
-    </div>
-  </div>
-  <div>
-    <input type="submit" value="Guardar producto"
-    [disabled]="productForm.invalid && 'true'">
-  </div>
+      <mat-form-field appearance="outline">
+        <mat-label>
+          <label for="productInfo">Information about product</label>
+        </mat-label>
+        <textarea matInput id="productInfo"
+                  placeholder="some reference of product"
+                  formControlName="productInfo"></textarea>
+        <div style="color: red"
+             *ngIf="productInfo.invalid && productInfo.dirty">
+          <span>Validation productInfo</span>
+          <pre>{{productInfo.errors | json}}</pre>
+        </div>
+      </mat-form-field>
 
-  <div *ngIf="productForm.dirty"
-       style="color: cornflowerblue">
-    <span>Enlace de datos</span>
-    <pre>{{productForm.valueChanges | async | json}}</pre>
-  </div>
-</form>
+      <mat-form-field appearance="fill">
+        <mat-label><label for="productPrice">Price</label></mat-label>
+        <input matInput type="number" id="productPrice"
+               formControlName="productPrice"/>
+        <span matPrefix>$&nbsp;</span>
+        <span matSuffix>.00</span>
+      </mat-form-field>
+
+      <div>
+        <mat-label><label for="productFile">Attached File</label></mat-label>
+        <input type="file" id="productFile"
+               formControlName="productFile"/>
+      </div>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <button mat-flat-button color="primary" type="submit"
+              [disabled]="productForm.invalid">
+        Guardar producto
+      </button>
+    </mat-card-actions>
+  </form>
+</mat-card>

@@ -5,6 +5,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatInputModule } from '@angular/material/input';
+import { MatListModule } from '@angular/material/list';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 @NgModule({
@@ -15,7 +19,11 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatButtonModule,
     MatToolbarModule,
     MatGridListModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatInputModule,
+    MatListModule,
+    MatIconModule,
+    MatSnackBarModule
   ],
   exports: [
     MatSliderModule,
@@ -23,7 +31,11 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatButtonModule,
     MatToolbarModule,
     MatGridListModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatInputModule,
+    MatListModule,
+    MatIconModule,
+    MatSnackBarModule
   ]
 })
 export class MaterialModule {
