@@ -12,6 +12,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatMenuModule } from '@angular/material/menu';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    MatMenuModule
   ],
   exports: [
     MatSliderModule,
@@ -48,7 +50,9 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    MatListModule,
+    MatMenuModule
   ]
 })
 export class MaterialModule {
