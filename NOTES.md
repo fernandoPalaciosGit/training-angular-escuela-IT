@@ -205,3 +205,9 @@ const isHandset$: Observer<boolean> =
         map((result) => result.matches),
         shareReplay()
     )
+
+### modulos de Autenticacion
+pertenecera a un area diferente que la de website o admin (cms)
+contendrá los componentes de login y register
+- angular Firebase 2 -> web server de autenticacion de usuarios
+https://github.com/angular/angularfire
