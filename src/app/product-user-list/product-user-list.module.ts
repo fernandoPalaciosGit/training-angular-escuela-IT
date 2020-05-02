@@ -13,6 +13,7 @@ import { ProductListApiService } from '@product-user-list/services/product-list-
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { ProductNewComponent } from './components/product-new/product-new.component';
 import { MaterialModule } from '@shares/material.module';
+import { ProductNewSchematicComponent } from '@product-user-list/components/product-new-schematic/product-new-schematic.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { MaterialModule } from '@shares/material.module';
     ProductComponent,
     ListComponent,
     ProductDetailsComponent,
-    ProductNewComponent
+    ProductNewComponent,
+    ProductNewSchematicComponent
   ],
   imports: [
     CommonModule,
