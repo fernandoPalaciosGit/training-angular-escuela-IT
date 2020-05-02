@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-product-new',
@@ -15,9 +15,9 @@ export class ProductNewComponent implements OnInit {
     // todo: es necesario inicializar el formulario en el constructor,
     //  porque tiene que estar instanciado antes de que es renderice el componente en pantalla (antes de ejecutarse el ngOnInit)
     this.productForm = this.formBuilder.group({
-      productTitle: ['', Validators.required],
+      productTitle: ['', [Validators.required]],
       productFile: [''],
-      productPrice: [100, Validators.required],
+      productPrice: [100, [Validators.required, Validators.min(200)]],
       productInfo: ['', [Validators.required, Validators.minLength(50)]]
     });
   }
@@ -26,8 +26,12 @@ export class ProductNewComponent implements OnInit {
   }
 
   // todo: para un mejor manejo de controles en el template, se definen hooks de acceso a cada control
-  get productInfo() {
+  get productInfo(): AbstractControl {
     return this.productForm.get('productInfo');
+  }
+
+  get productPrice(): AbstractControl {
+    return this.productForm.get('productPrice');
   }
 
   onSubmitForm() {

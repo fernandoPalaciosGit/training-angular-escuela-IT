@@ -15,6 +15,9 @@
         <input matInput type="text" id="productTitle"
                placeholder="some reference of product"
                formControlName="productTitle"/>
+        <mat-error *ngIf="productForm.controls['productTitle'].hasError('required')">
+          Title is <strong>required</strong>
+        </mat-error>
       </mat-form-field>
 
       <mat-form-field appearance="outline">
@@ -24,11 +27,10 @@
         <textarea matInput id="productInfo"
                   placeholder="some reference of product"
                   formControlName="productInfo"></textarea>
-        <div style="color: red"
-             *ngIf="productInfo.invalid && productInfo.dirty">
-          <span>Validation productInfo</span>
-          <pre>{{productInfo.errors | json}}</pre>
-        </div>
+        <mat-error *ngIf="productInfo.dirty && productInfo?.errors?.minlength">
+          <span>Has to describe at least</span>
+          <strong> {{productInfo.errors.minlength.requiredLength}} characters</strong>
+        </mat-error>
       </mat-form-field>
 
       <mat-form-field appearance="fill">
@@ -37,6 +39,10 @@
                formControlName="productPrice"/>
         <span matPrefix>$&nbsp;</span>
         <span matSuffix>.00</span>
+        <mat-error *ngIf="productForm.dirty && productPrice.hasError('min')">
+          <span>Should cost at least </span>
+          <strong>$ {{productPrice.getError('min').min}}</strong>
+        </mat-error>
       </mat-form-field>
 
       <div>
