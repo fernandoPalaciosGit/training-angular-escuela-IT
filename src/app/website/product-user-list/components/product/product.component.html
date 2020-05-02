@@ -1,29 +1,26 @@
-<!--
 <div>
-  <h2>{{product.text}} &ndash;&gt; {{product.price}} </h2>
+  <h2>{{product.text}} --> {{product.price}} </h2>
   <button (click)="selectProduct()">select</button>
   <img src="{{product.image}}" alt="product"/>
 </div>
 
--->
-
 <mat-grid-list cols="3" rowHeight="1:1.1">
   <mat-grid-tile
-    *ngFor="let product of productListApi$ | async">
+    *ngFor="let productApi of productListApi$ | async">
     <mat-card>
       <mat-card-header>
         <div mat-card-avatar class="example-header-image"></div>
-        <mat-card-title>{{ product.title | uppercase }}</mat-card-title>
-        <mat-card-subtitle>price: {{ product.price | currency | uppercase }}</mat-card-subtitle>
+        <mat-card-title>{{ productApi.title | uppercase }}</mat-card-title>
+        <mat-card-subtitle>price: {{ productApi.price | currency | uppercase }}</mat-card-subtitle>
       </mat-card-header>
-      <img mat-card-image [src]="product.image" alt="{{product.title}}">
+      <img mat-card-image [src]="productApi.image" alt="{{productApi.title}}">
       <mat-card-content>
-        <p>{{ product.text }}</p>
+        <p>{{ productApi.text }}</p>
         <p>{{ today | date:'yyyy.MM.dd' }}</p>
       </mat-card-content>
       <mat-card-actions>
         <button mat-raised-button color="primary"
-                (click)="selectedProductApi.emit(product)">
+                (click)="selectedProductApi(productApi)">
           <!--          [routerLink]="['./', product.id]">-->
           View details
         </button>
