@@ -31,6 +31,9 @@
       "@shares/*": [
         "src/app/shared/*"
       ],
+      "@cms/*": [
+        "src/app/cms/*"
+      ],
       "@contact/*": [
         "src/app/contact/*"
       ]

@@ -11,9 +11,7 @@ import { UsersService } from '@product-user-list/services/users.service';
 import { ProductService } from '@product-user-list/services/product.service';
 import { ProductListApiService } from '@product-user-list/services/product-list-api.service';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
-import { ProductNewComponent } from './components/product-new/product-new.component';
 import { MaterialModule } from '@shares/material.module';
-import { ProductNewSchematicComponent } from '@product-user-list/components/product-new-schematic/product-new-schematic.component';
 
 @NgModule({
   declarations: [
@@ -21,8 +19,6 @@ import { ProductNewSchematicComponent } from '@product-user-list/components/prod
     ProductComponent,
     ListComponent,
     ProductDetailsComponent,
-    ProductNewComponent,
-    ProductNewSchematicComponent
   ],
   imports: [
     CommonModule,

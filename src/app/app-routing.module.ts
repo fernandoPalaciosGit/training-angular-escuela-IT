@@ -23,6 +23,10 @@ const routes: Routes = [{
   loadChildren: () => import('./contact/contact.module')
     .then((module) => module.ContactModule)
 }, {
+  path: 'admin',
+  loadChildren: () => import('./cms/cms.module')
+    .then((module) => module.CmsModule)
+}, {
   path: '**',
   component: NotFoundComponent
 }];

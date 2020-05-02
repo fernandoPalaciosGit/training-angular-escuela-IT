@@ -11,6 +11,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
+import { MatSidenavModule } from '@angular/material/sidenav';
 
 
 @NgModule({
@@ -18,36 +19,36 @@ import { MatRadioModule } from '@angular/material/radio';
   imports: [
     MatSliderModule,
     MatCardModule,
-    MatButtonModule,
     MatToolbarModule,
     MatGridListModule,
     MatTooltipModule,
     MatInputModule,
-    MatListModule,
-    MatIconModule,
     MatSnackBarModule,
     MatInputModule,
-    MatButtonModule,
     MatSelectModule,
     MatRadioModule,
     MatCardModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule
   ],
   exports: [
     MatSliderModule,
     MatCardModule,
-    MatButtonModule,
     MatToolbarModule,
     MatGridListModule,
     MatTooltipModule,
     MatInputModule,
-    MatListModule,
-    MatIconModule,
     MatSnackBarModule,
     MatInputModule,
-    MatButtonModule,
     MatSelectModule,
     MatRadioModule,
     MatCardModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule
   ]
 })
 export class MaterialModule {
