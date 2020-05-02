@@ -7,21 +7,9 @@ const routes: Routes = [{
   redirectTo: 'todo-list',
   pathMatch: 'full'
 }, {
-  path: 'todo-list',
-  loadChildren: () => import('./todo-list/todo-list.module')
-    .then((module) => module.TodoListModule)
-}, {
-  path: 'item-list',
-  loadChildren: () => import('./product-user-list/product-user-list.module')
-    .then((module) => module.ProductUserListModule)
-}, {
-  path: 'basics',
-  loadChildren: () => import('./basics/basics.module')
-    .then((module) => module.BasicsModule)
-}, {
-  path: 'contact',
-  loadChildren: () => import('./contact/contact.module')
-    .then((module) => module.ContactModule)
+  path: '',
+  loadChildren: () => import('./website/website.module')
+    .then((module) => module.WebsiteModule)
 }, {
   path: 'admin',
   loadChildren: () => import('./cms/cms.module')

@@ -17,16 +17,16 @@
     ],
     "paths": {
       "@basics/*": [
-        "src/app/basics/*"
+        "src/app/website/basics/*"
       ],
       "@product-user-list/*": [
-        "src/app/product-user-list/*"
+        "src/app/website/product-user-list/*"
       ],
       "@todo-list/*": [
-        "src/app/todo-list/*"
+        "src/app/website/todo-list/*"
       ],
-      "@core/*": [
-        "src/app/core/*"
+      "@contact/*": [
+        "src/app/website/contact/*"
       ],
       "@shares/*": [
         "src/app/shared/*"
@@ -34,9 +34,6 @@
       "@cms/*": [
         "src/app/cms/*"
       ],
-      "@contact/*": [
-        "src/app/contact/*"
-      ]
     }
   },
   "angularCompilerOptions": {
