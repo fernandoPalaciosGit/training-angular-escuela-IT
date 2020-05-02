@@ -7,6 +7,10 @@ const routes: Routes = [{
   path: '',
   component: LayoutWebsiteComponent,
   children: [{
+    path: '',
+    redirectTo: 'todo-list',
+    pathMatch: 'full',
+  }, {
     path: 'todo-list',
     loadChildren: () => import('./todo-list/todo-list.module')
       .then((module) => module.TodoListModule)

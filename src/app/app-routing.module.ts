@@ -4,10 +4,6 @@ import { NotFoundComponent } from '@shares/components/not-found/not-found.compon
 
 const routes: Routes = [{
   path: '',
-  redirectTo: 'todo-list',
-  pathMatch: 'full'
-}, {
-  path: '',
   loadChildren: () => import('./website/website.module')
     .then((module) => module.WebsiteModule)
 }, {
