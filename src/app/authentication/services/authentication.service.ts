@@ -20,7 +20,6 @@ export class AuthenticationService {
 
   signIn(email: string, password: string): Promise<UserCredential | AuthError> {
     return this.firebaseAuth.signInWithEmailAndPassword(email, password)
-      .then((result) => this.localTraceService.logInfo(this, result))
       .catch(({ code, message }) => AutErrorService.getLoginError(code));
   }
 
@@ -30,7 +29,6 @@ export class AuthenticationService {
 
   register(email: string, password: string): Promise<UserCredential | AuthError> {
     return this.firebaseAuth.createUserWithEmailAndPassword(email, password)
-      .then((result) => this.localTraceService.logInfo(this, result))
       .catch(({ code, message }) => AutErrorService.getRegisterError(code));
   }
 

@@ -18,7 +18,8 @@ const errorLogin: AuthError[] = [
 ];
 
 const errorRegister: AuthError[] = [
-  new AuthError('WEAK_PASS', 'auth/weak-password')
+  new AuthError('WEAK_PASS', 'auth/weak-password'),
+  new AuthError('EMAIL_EXISTS', 'auth/email-already-in-use')
 ];
 
 export class AutErrorService {

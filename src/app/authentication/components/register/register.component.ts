@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LocalTraceService } from '@shares/services/local-trace.service';
 import { UserValidator } from '@authentication/validators/user-validator';
+import { AuthenticationService } from '@authentication/services/authentication.service';
 
 @Component({
   selector: 'app-register',
@@ -14,7 +15,8 @@ export class RegisterComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private localTraceService: LocalTraceService
+    private localTraceService: LocalTraceService,
+    private authenticationService: AuthenticationService
   ) {
   }
 
@@ -37,6 +39,7 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit() {
-    this.localTraceService.logInfo(this, this.registerForm.value);
+    this.authenticationService.register(this.email.value, this.password.value)
+      .then((result) => this.localTraceService.logInfo(this, result));
   }
 }
