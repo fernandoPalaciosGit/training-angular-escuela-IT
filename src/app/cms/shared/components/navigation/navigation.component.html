@@ -11,6 +11,7 @@
          [routerLink]="['/admin/products/new-schematic']">new product schematic</a>
       <a mat-list-item
          [routerLink]="['/admin/analytics']">Analytics</a>
+      <a mat-list-item (click)="logout()">Log out</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -23,7 +24,7 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>training-angular-escuela-IT</span>
+      <span>Welcome to the User area</span>
     </mat-toolbar>
     <router-outlet></router-outlet>
   </mat-sidenav-content>

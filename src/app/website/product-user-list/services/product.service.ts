@@ -2,9 +2,7 @@ import { Injectable } from '@angular/core';
 import { product } from '@product-user-list/mocks/product';
 import { Product } from '@product-user-list/models/product';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class ProductService {
   private static repeatProduct = 3;
 

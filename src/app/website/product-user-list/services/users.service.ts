@@ -4,9 +4,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { ApiUsers, Users } from '@product-user-list/models/users';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class UsersService {
   readonly API_USER = 'https://randomuser.me/api';
 

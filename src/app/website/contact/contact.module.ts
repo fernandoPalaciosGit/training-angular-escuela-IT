@@ -5,6 +5,7 @@ import { ContactRoutingModule } from './contact-routing.module';
 import { SharedModule } from '@shares/shared.module';
 import { ContactUserFormComponent } from '@contact/components/contact-user-form/contact-user-form.component';
 import { MaterialModule } from '@shares/material.module';
+import { UserListService } from '@contact/user-list.service';
 
 
 @NgModule({
@@ -15,5 +16,8 @@ import { MaterialModule } from '@shares/material.module';
     SharedModule,
     MaterialModule
   ],
+  providers: [
+    UserListService
+  ]
 })
 export class ContactModule { }

@@ -6,6 +6,9 @@ import { User } from 'firebase';
 import { map } from 'rxjs/operators';
 import { AutErrorService, AuthError } from '@authentication/services/aut-error';
 
+// importante configurar {providedIn: 'root'}
+// --> porque desde el website se debe llamar al servicio para comprobar que esta logueado
+// --> hasSession() desde los componentes del /website
 @Injectable({
   providedIn: 'root'
 })

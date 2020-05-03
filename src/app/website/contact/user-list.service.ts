@@ -2,9 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class UserListService {
   private readonly API = 'http://www.localhost:4000';
   private readonly RESOURCE = 'bannedUsers';

@@ -4,9 +4,7 @@ import { ProductApi } from '@product-user-list/models/product';
 import { Observable } from 'rxjs';
 import { filter, flatMap } from 'rxjs/operators';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class ProductListApiService {
   static API = 'http://www.localhost:4000';
   static RESOURCE = 'products';

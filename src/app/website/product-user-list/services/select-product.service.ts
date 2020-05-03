@@ -5,9 +5,7 @@ import { filter } from 'rxjs/operators';
 
 // actuara como proxy de información entre partes de la aplicación que no están comunicadas
 // permitirá enlazar productos a a través de la suscripción de un BehaviorSubject (se puede entender como un proxy)
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class SelectProductService {
   private selected: BehaviorSubject<ProductApi> = new BehaviorSubject(null);
 
