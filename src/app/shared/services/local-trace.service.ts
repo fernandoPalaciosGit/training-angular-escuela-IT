@@ -11,9 +11,9 @@ export class LocalTraceService {
   logInfo(context: any, result: any) {
     if (isDevMode()) {
       console.info(
-        context.name || this?.constructor?.name,
+        context.name || context?.constructor?.name || '',
         '<--->',
-        JSON.stringify(result, null, '\t')
+        result
       );
     }
     return result;

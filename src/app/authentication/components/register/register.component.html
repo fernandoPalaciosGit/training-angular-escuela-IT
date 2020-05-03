@@ -9,7 +9,8 @@
     <mat-card-content class="register-controls-wrapper">
       <mat-form-field appearance="fill">
         <mat-label>Enter your email</mat-label>
-        <input matInput placeholder="pat@example.com" required/>
+        <input matInput placeholder="name@example.com" required
+               formControlName="email"/>
         <mat-error *ngIf="registerForm.dirty && email.invalid">
           <div *ngIf="email.hasError('email')">Your email name is not valid</div>
         </mat-error>
@@ -17,28 +18,31 @@
 
       <mat-form-field appearance="fill">
         <mat-label>Enter your password</mat-label>
-        <input matInput [type]="hide ? 'password' : 'text'"/>
+        <input matInput [type]="hide ? 'password' : 'text'"
+               formControlName="password"/>
         <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
                 [attr.aria-pressed]="hide">
           <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         </button>
         <mat-error *ngIf="registerForm.dirty && password.invalid">
-          <div *ngIf="password.hasError('minlength')">should be at least {{password.errors.minLength}} charachters</div>
+          <div *ngIf="password.hasError('minlength')">should be at least {{password.errors.minlength.requiredLength}}
+            charachters
+          </div>
         </mat-error>
       </mat-form-field>
 
       <mat-form-field *ngIf="password.valid">
         <mat-label>confirm password</mat-label>
-        <input matInput type="password"/>
-        <mat-error *ngIf="registerForm.dirty && confirmPassword.invalid">
-          <div *ngIf="password.hasError('sameValue')">Your password should agree</div>
-        </mat-error>
+        <input matInput type="password" formControlName="confirmPassword"/>
       </mat-form-field>
+      <mat-error *ngIf="registerForm.dirty && registerForm.hasError('samePasswordValue')">
+        <div>Your password should agree</div>
+      </mat-error>
 
       <hr>
       <hr>
       <span style="color: cornflowerblue">{{registerForm.valueChanges | async | json}}</span>
-      <span style="color: red">{{registerForm.errors | json}}</span>
+      <span style="color: red">{{this.registerForm | printErrorForm | json}}</span>
     </mat-card-content>
 
     <mat-card-actions>

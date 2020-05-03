@@ -6,6 +6,7 @@ import { HighlightDirective } from '@shares/directives/highlight.directive';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { JsonParseStringPipe } from '@shares/pipes/json-parse-string.pipe';
+import { PrintErrorFormPipe } from '@shares/pipes/print-error-form.pipe';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { JsonParseStringPipe } from '@shares/pipes/json-parse-string.pipe';
     FibonacciNumberPipe,
     HighlightDirective,
     NotFoundComponent,
-    JsonParseStringPipe
+    JsonParseStringPipe,
+    PrintErrorFormPipe
   ],
   exports: [
     DateformatPipe,
@@ -21,7 +23,8 @@ import { JsonParseStringPipe } from '@shares/pipes/json-parse-string.pipe';
     HighlightDirective,
     FormsModule,
     ReactiveFormsModule,
-    JsonParseStringPipe
+    JsonParseStringPipe,
+    PrintErrorFormPipe
   ],
   imports: [
     CommonModule,
