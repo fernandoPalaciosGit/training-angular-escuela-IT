@@ -9,6 +9,7 @@ import { AnalyticsComponent } from '@cms/components/analytics/analytics.componen
 const routes: Routes = [{
   path: '',
   component: NavigationComponent,
+  // SE PUEDE USAR GUARDS POR CADA TIPO DE USUARIO, y le podriamos añadir la validacion de rol de usuario
   children: [{
     path: '',
     component: ProductNewComponent
