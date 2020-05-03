@@ -7,6 +7,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { JsonParseStringPipe } from '@shares/pipes/json-parse-string.pipe';
 import { PrintErrorFormPipe } from '@shares/pipes/print-error-form.pipe';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,7 @@ import { PrintErrorFormPipe } from '@shares/pipes/print-error-form.pipe';
     HighlightDirective,
     NotFoundComponent,
     JsonParseStringPipe,
-    PrintErrorFormPipe
+    PrintErrorFormPipe,
   ],
   exports: [
     DateformatPipe,
@@ -24,7 +25,8 @@ import { PrintErrorFormPipe } from '@shares/pipes/print-error-form.pipe';
     FormsModule,
     ReactiveFormsModule,
     JsonParseStringPipe,
-    PrintErrorFormPipe
+    PrintErrorFormPipe,
+    TranslateModule
   ],
   imports: [
     CommonModule,

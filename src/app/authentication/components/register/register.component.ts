@@ -3,6 +3,11 @@ import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/fo
 import { LocalTraceService } from '@shares/services/local-trace.service';
 import { UserValidator } from '@authentication/validators/user-validator';
 import { AuthenticationService } from '@authentication/services/authentication.service';
+import UserCredential = firebase.auth.UserCredential;
+import { AuthError } from '@authentication/services/aut-error';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { TranslateKeysService } from '@shares/services/translate-keys.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -16,7 +21,10 @@ export class RegisterComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private localTraceService: LocalTraceService,
-    private authenticationService: AuthenticationService
+    private authenticationService: AuthenticationService,
+    private matSnackBar: MatSnackBar,
+    private translate: TranslateKeysService,
+    private router: Router
   ) {
   }
 
@@ -40,6 +48,19 @@ export class RegisterComponent implements OnInit {
 
   onSubmit() {
     this.authenticationService.register(this.email.value, this.password.value)
-      .then((result) => this.localTraceService.logInfo(this, result));
+      .then((result) => this.localTraceService.logInfo(this, result))
+      .then(this.manageRegisterAction.bind(this));
+  }
+
+  manageRegisterAction(response: UserCredential | AuthError) {
+    if (response instanceof AuthError) {
+      this.translate.getMessage('errors', response.code).subscribe((text) => {
+        this.matSnackBar.open(text, 'Undo', {
+          duration: 3000
+        });
+      });
+    } else {
+      this.router.navigate(['authentication/login']);
+    }
   }
 }

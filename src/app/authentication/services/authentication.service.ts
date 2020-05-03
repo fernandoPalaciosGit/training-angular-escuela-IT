@@ -1,11 +1,10 @@
-import { Injectable, isDevMode } from '@angular/core';
+import { Injectable} from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import UserCredential = firebase.auth.UserCredential;
 import { Observable } from 'rxjs';
 import { User } from 'firebase';
 import { map } from 'rxjs/operators';
 import { AutErrorService, AuthError } from '@authentication/services/aut-error';
-import { LocalTraceService } from '@shares/services/local-trace.service';
 
 @Injectable({
   providedIn: 'root'
@@ -13,8 +12,7 @@ import { LocalTraceService } from '@shares/services/local-trace.service';
 export class AuthenticationService {
 
   constructor(
-    private firebaseAuth: AngularFireAuth,
-    private localTraceService: LocalTraceService
+    private firebaseAuth: AngularFireAuth
   ) {
   }
 

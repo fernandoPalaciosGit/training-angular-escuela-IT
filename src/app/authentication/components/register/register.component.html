@@ -39,10 +39,10 @@
         <div>Your password should agree</div>
       </mat-error>
 
-      <hr>
-      <hr>
-      <span style="color: cornflowerblue">{{registerForm.valueChanges | async | json}}</span>
-      <span style="color: red">{{this.registerForm | printErrorForm | json}}</span>
+      <div *ngIf="registerForm.dirty">
+        <pre style="color: cornflowerblue">{{registerForm.valueChanges | async | json}}</pre>
+        <pre style="color: red">{{registerForm | printErrorForm | json}}</pre>
+      </div>
     </mat-card-content>
 
     <mat-card-actions>
