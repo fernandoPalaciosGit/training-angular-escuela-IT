@@ -209,10 +209,12 @@ const isHandset$: Observer<boolean> =
 ### modulos de Autenticacion
 pertenecera a un area diferente que la de website o admin (cms)
 contendrá los componentes de login y register
+- npm install firebase @angular/fire --save
 - angular Firebase 2 -> web server de autenticacion de usuarios
 https://firebase.google.com/
 https://github.com/angular/angularfire/blob/master/docs/install-and-setup.md
 https://github.com/angular/angularfire/blob/master/docs/auth/getting-started.md
+https://firebase.google.com/docs/reference/js/firebase.auth.Auth
 
 - autenticamos con la cuenta de goole
 - se crea un proyecto, que contendra aplicaciones
@@ -222,3 +224,10 @@ https://github.com/angular/angularfire/blob/master/docs/auth/getting-started.md
 
 ### Gestion de Hosting
 a traves de la CLI: $firebase login, init, deploy
+
+### Habilitar el modo de autenticacion
+Una vez que hemos configurado nuestro entorno con el proyecto y la app de FIrebase, hay que registrar el modo de autenticacion,
+desde el dashboard de usuario de FIrebase
+ - Por telefono: Firebase enviara un Codigo via  mesnsaje al movil del usuario
+ - Por alguna platafotrma OAUTH de terceros: Google, Github, yahoo, Microsoft..
+ - Por email/pass

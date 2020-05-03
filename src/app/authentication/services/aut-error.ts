@@ -1,0 +1,34 @@
+export class AuthError extends Error {
+  code: string;
+  message: string;
+
+  constructor(code, message) {
+    super(message);
+    this.code = code;
+    this.message = message;
+  }
+
+  isError(message: string) {
+    return this.message === message;
+  }
+}
+
+const errorLogin: AuthError[] = [
+  new AuthError('WRONG_PASS', 'auth/wrong-password')
+];
+
+const errorRegister: AuthError[] = [
+  new AuthError('WEAK_PASS', 'auth/weak-password')
+];
+
+export class AutErrorService {
+  static getRegisterError(error: string): AuthError | null {
+    return errorRegister
+      .find((authError: AuthError) => authError.isError(error));
+  }
+
+  static getLoginError(error: string): AuthError | null {
+    return errorLogin
+      .find((authError: AuthError) => authError.isError(error));
+  }
+}

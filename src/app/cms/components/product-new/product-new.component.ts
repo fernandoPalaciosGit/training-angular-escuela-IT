@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { LocalTraceService } from '@shares/services/local-trace.service';
 
 @Component({
   selector: 'app-product-new',
@@ -10,7 +11,8 @@ export class ProductNewComponent implements OnInit {
   productForm: FormGroup;
 
   constructor(
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private localTraceService: LocalTraceService
   ) {
     // todo: es necesario inicializar el formulario en el constructor,
     //  porque tiene que estar instanciado antes de que es renderice el componente en pantalla (antes de ejecutarse el ngOnInit)
@@ -35,6 +37,6 @@ export class ProductNewComponent implements OnInit {
   }
 
   onSubmitForm() {
-    alert(JSON.stringify(this.productForm.value, null, '\t'));
+    alert(this.localTraceService.logInfo(this, this.productForm.value));
   }
 }
