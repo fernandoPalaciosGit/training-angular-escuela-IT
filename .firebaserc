@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "training-and-demos": {
+      "hosting": {
+        "training-angular-escuela-IT": [
+          "training-and-demos"
+        ]
+      }
+    }
+  }
+}

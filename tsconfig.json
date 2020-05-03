@@ -36,6 +36,9 @@
       ],
       "@authentication/*": [
         "src/app/authentication/*"
+      ],
+      "@env/*": [
+        "src/environments/*"
       ]
     }
   },

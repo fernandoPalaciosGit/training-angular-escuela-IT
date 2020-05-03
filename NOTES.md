@@ -210,4 +210,15 @@ const isHandset$: Observer<boolean> =
 pertenecera a un area diferente que la de website o admin (cms)
 contendrá los componentes de login y register
 - angular Firebase 2 -> web server de autenticacion de usuarios
-https://github.com/angular/angularfire
+https://firebase.google.com/
+https://github.com/angular/angularfire/blob/master/docs/install-and-setup.md
+https://github.com/angular/angularfire/blob/master/docs/auth/getting-started.md
+
+- autenticamos con la cuenta de goole
+- se crea un proyecto, que contendra aplicaciones
+- cada aplicacion se regstrara en un espacio de hosting de la propia nube de firebase (que se asignara cuando crees la aplciacion)
+- Storage Bucket: es la parte del hosting de Firebase que almacena los arvhivos (hay que activarlo) -> cualquier cosa que genere un usuario -> debe salir en la config de {firebaseConfig}
+- se añade el {firebaseConfig} en environments.ts
+
+### Gestion de Hosting
+a traves de la CLI: $firebase login, init, deploy

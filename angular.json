@@ -123,6 +123,10 @@
               "devServerTarget": "training-angular-escuela-IT:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
     }
