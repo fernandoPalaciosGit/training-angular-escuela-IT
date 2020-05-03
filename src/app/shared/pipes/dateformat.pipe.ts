@@ -1,6 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-// @ts-ignore
-import * as moment from 'moment';
+import * as moment from 'moment/moment';
 import 'moment/locale/es';
 
 @Pipe({
