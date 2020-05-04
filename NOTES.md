@@ -198,6 +198,8 @@ Podemos acceder a todas las prokpiedades del FormControl en cualquier momento de
 ocurre el caso de que el valor asignado a nuestro control debe validarse con una fuente de datos externa a la aplicacion 
 class FormControl(initvalue: string, syncValidations: ValidatorFn[], asyncValidations: AsyncValidatorFn[]) 
 
+Problema de metodo estatico: la buena practica, y como menciona la gua de Angular, es definir metodos estaticos para la validacion de formularios reactivos. Un problema de dependencias en validacion asincrona es que necesitamos del servicio que consulte con los datos para nuestra validacion, pero se da el caso que los metodos estaticos NO pueden hacer referencia a propiedades de clase, asi que el servicio se añade como dependencia del metodo por parametro + programamcion funcional: deviuelve un a funcion parametrizable con el valor de input (isBannedUser())
+
 ## Viewport observers :  BREAKPOINTS NATIVOS DE ANGULAR
 const isHandset$: Observer<boolean> = 
     this.breakpointObserver.observe(Breakpoints.Handset)

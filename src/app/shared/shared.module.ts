@@ -8,6 +8,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { JsonParseStringPipe } from '@shares/pipes/json-parse-string.pipe';
 import { PrintErrorFormPipe } from '@shares/pipes/print-error-form.pipe';
 import { TranslateModule } from '@ngx-translate/core';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,7 @@ import { TranslateModule } from '@ngx-translate/core';
     HighlightDirective,
     NotFoundComponent,
     JsonParseStringPipe,
-    PrintErrorFormPipe,
+    PrintErrorFormPipe
   ],
   exports: [
     DateformatPipe,
@@ -26,12 +27,14 @@ import { TranslateModule } from '@ngx-translate/core';
     ReactiveFormsModule,
     JsonParseStringPipe,
     PrintErrorFormPipe,
-    TranslateModule
+    TranslateModule,
+    HttpClientModule
   ],
   imports: [
     CommonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ]
 })
 export class SharedModule {

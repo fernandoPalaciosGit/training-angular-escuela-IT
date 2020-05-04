@@ -6,7 +6,6 @@ import { ProductComponent } from '@product-user-list/components/product/product.
 import { ListComponent } from '@product-user-list/components/list/list.component';
 import { ProductUserListRoutingModule } from '@product-user-list/product-user-list-routing.module';
 import { SharedModule } from '@shares/shared.module';
-import { HttpClientModule } from '@angular/common/http';
 import { UsersService } from '@product-user-list/services/users.service';
 import { ProductService } from '@product-user-list/services/product.service';
 import { ProductListApiService } from '@product-user-list/services/product-list-api.service';
@@ -25,7 +24,6 @@ import { SelectProductService } from '@product-user-list/services/select-product
     CommonModule,
     ProductUserListRoutingModule,
     FormsModule,
-    HttpClientModule,
     SharedModule,
     MaterialModule
   ],

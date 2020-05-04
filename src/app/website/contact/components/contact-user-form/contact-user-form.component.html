@@ -28,6 +28,7 @@
   <button [disabled]="userName.invalid && 'true'">Enviar</button>
   <div *ngIf="userName.invalid && userName.dirty">
     <p *ngIf="userName.hasError('isUserNando')">Tu no te llamas Nando</p>
+    <p *ngIf="userName.hasError('isBannedUser')">Ya tenemos ese nombre baned</p>
   </div>
   <div style="color: red">
     enlace de datos del userName: {{userName.valueChanges | async }}

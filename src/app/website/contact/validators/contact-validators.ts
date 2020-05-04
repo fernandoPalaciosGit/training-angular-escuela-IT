@@ -4,9 +4,7 @@ import { UserListService } from '../user-list.service';
 import { map } from 'rxjs/operators';
 
 export class ContactValidators {
-  constructor(
-    private userListService: UserListService
-  ) {
+  constructor() {
   }
 
   static isUserNando(control: AbstractControl): ValidationErrors | null {
@@ -15,11 +13,12 @@ export class ContactValidators {
     return control.value.indexOf(USER) !== -1 ? null : ERROR;
   }
 
-  isBannedUser = (control: AbstractControl): Observable<ValidationErrors | null> => {
+  static isBannedUser(userListService: UserListService) {
     const ERROR = { isBannedUser: true };
-    return this.userListService.getBannedUsers().pipe(
-      map((users: string[]) => users.indexOf(control.value) !== -1),
-      map((isInvalid: boolean) => isInvalid ? ERROR : null)
-    );
+    return (control: AbstractControl): Observable<ValidationErrors | null> => {
+      return userListService.isBannedUser(control.value).pipe(
+        map((isInvalid: boolean) => isInvalid ? ERROR : null)
+      );
+    };
   }
 }

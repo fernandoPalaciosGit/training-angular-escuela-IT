@@ -4,7 +4,6 @@ import { TodoListRoutingModule } from './todo-list-routing.module';
 import { TodoListComponent } from '@todo-list/components/todo-list/todo-list.component';
 import { TodoComponent } from '@todo-list/components/todo/todo.component';
 import { TodosService } from '@todo-list/services/todos.service';
-import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from '@shares/shared.module';
 import { MaterialModule } from '@shares/material.module';
 
@@ -16,7 +15,6 @@ import { MaterialModule } from '@shares/material.module';
   imports: [
     CommonModule,
     TodoListRoutingModule,
-    HttpClientModule,
     SharedModule,
     MaterialModule
   ],

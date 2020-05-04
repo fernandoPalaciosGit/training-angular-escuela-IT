@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { FormControl, Validators } from '@angular/forms';
 import { debounceTime } from 'rxjs/operators';
 import { ContactValidators } from '@contact/validators/contact-validators';
+import { UserListService } from '@contact/user-list.service';
 
 @Component({
   selector: 'app-contact-user-form',
@@ -15,7 +16,9 @@ export class ContactUserFormComponent implements OnInit {
   userEmailData$: Observable<string>;
   userName: FormControl;
 
-  constructor() {
+  constructor(
+    private userListService: UserListService
+  ) {
   }
 
   ngOnInit(): void {
@@ -44,6 +47,7 @@ export class ContactUserFormComponent implements OnInit {
 
   private initUserName() {
     const validators = [ContactValidators.isUserNando];
-    this.userName = new FormControl('', validators);
+    const validatorsAsync = [ContactValidators.isBannedUser(this.userListService)];
+    this.userName = new FormControl('', validators, validatorsAsync);
   }
 }
