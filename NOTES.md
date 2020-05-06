@@ -233,3 +233,17 @@ desde el dashboard de usuario de FIrebase
  - Por telefono: Firebase enviara un Codigo via  mesnsaje al movil del usuario
  - Por alguna platafotrma OAUTH de terceros: Google, Github, yahoo, Microsoft..
  - Por email/pass
+
+### Ejercicio Tabla Material
+- Añadir 40 productos al db.json
+- añadir categorias a cada producto
+- crear data table en una nueva ruta del area de admin
+- nuevo componente ->> productListDetailsComponent
+- tabla de productos que lee cada 5 productos de la rest API
+- Retrieving data throudght http: debajo del footer debe tener un paginator por cada 5 o 10 productos -> cada paginacion añade 5 o 10 productos de la lista a mostrar
+- columna de editar -> con u boton Action que redirige a otra pagina de edicion de producto 
+- filtro por ocurrencia
+- filtro con un selector por categoria (crear nueva entrada en la db.json) y cada seleccion hara un arequest al server y descargara uana nueva lista de tabla
+- on click -> la tabla se expande y se visualiza la imagen y la descripcion larga
+- el footer tiene que ser sticky y mosbtrar el total
+- Añadir el sorting en cada columna

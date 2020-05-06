@@ -36,22 +36,329 @@
       "id": 1,
       "title": "Producto 1",
       "price": 200,
-      "text": "bla bl bla blsd sd sdjsdkjsd sdksjdkklsd kljsd",
-      "image": "assets/images/img1.jpeg"
+      "text": "Cedriums accelerare, tanquam teres terror.",
+      "image": "assets/images/img1.jpeg",
+      "category": "pirates"
     },
     {
       "id": 2,
       "title": "Producto 2",
       "price": 200,
-      "text": "sdklfjsaf dfklasdfa sdfsd fsdaklfjsadfsdfklsdjfasd fsadklfjdsaf sdaflksdjafasdlñkf dsfkjas",
-      "image": "assets/images/img2.jpeg"
+      "text": "art rejects when you visualize with faith. ",
+      "image": "assets/images/img2.jpeg",
+      "category": "esoteric"
     },
     {
       "id": 3,
       "title": "Producto 3",
       "price": 200,
-      "text": "supe desatyno",
-      "image": "assets/images/img3.jpeg"
+      "text": "with rice drink vinegar. ",
+      "image": "assets/images/img3.jpeg",
+      "category": "culinary"
+    },
+    {
+      "id": 1,
+      "title": "Producto 1",
+      "price": 200,
+      "text": "Cedriums accelerare, tanquam teres terror.",
+      "image": "assets/images/img1.jpeg",
+      "category": "pirates"
+    },
+    {
+      "id": 4,
+      "title": "Producto 2",
+      "price": 200,
+      "text": "art rejects when you visualize with faith. ",
+      "image": "assets/images/img2.jpeg",
+      "category": "esoteric"
+    },
+    {
+      "id": 5,
+      "title": "Producto 3",
+      "price": 200,
+      "text": "with rice drink vinegar. ",
+      "image": "assets/images/img3.jpeg",
+      "category": "culinary"
+    },
+    {
+      "id": 6,
+      "title": "Producto 1",
+      "price": 200,
+      "text": "Cedriums accelerare, tanquam teres terror.",
+      "image": "assets/images/img1.jpeg",
+      "category": "pirates"
+    },
+    {
+      "id": 7,
+      "title": "Producto 2",
+      "price": 200,
+      "text": "art rejects when you visualize with faith. ",
+      "image": "assets/images/img2.jpeg",
+      "category": "esoteric"
+    },
+    {
+      "id": 8,
+      "title": "Producto 3",
+      "price": 200,
+      "text": "with rice drink vinegar. ",
+      "image": "assets/images/img3.jpeg",
+      "category": "culinary"
+    },
+    {
+      "id": 9,
+      "title": "Producto 1",
+      "price": 200,
+      "text": "Cedriums accelerare, tanquam teres terror.",
+      "image": "assets/images/img1.jpeg",
+      "category": "pirates"
+    },
+    {
+      "id": 10,
+      "title": "Producto 2",
+      "price": 200,
+      "text": "art rejects when you visualize with faith. ",
+      "image": "assets/images/img2.jpeg",
+      "category": "esoteric"
+    },
+    {
+      "id": 11,
+      "title": "Producto 3",
+      "price": 200,
+      "text": "with rice drink vinegar. ",
+      "image": "assets/images/img3.jpeg",
+      "category": "culinary"
+    },
+    {
+      "id": 12,
+      "title": "Producto 1",
+      "price": 200,
+      "text": "Cedriums accelerare, tanquam teres terror.",
+      "image": "assets/images/img1.jpeg",
+      "category": "pirates"
+    },
+    {
+      "id": 13,
+      "title": "Producto 2",
+      "price": 200,
+      "text": "art rejects when you visualize with faith. ",
+      "image": "assets/images/img2.jpeg",
+      "category": "esoteric"
+    },
+    {
+      "id": 14,
+      "title": "Producto 3",
+      "price": 200,
+      "text": "with rice drink vinegar. ",
+      "image": "assets/images/img3.jpeg",
+      "category": "culinary"
+    },
+    {
+      "id": 15,
+      "title": "Producto 1",
+      "price": 200,
+      "text": "Cedriums accelerare, tanquam teres terror.",
+      "image": "assets/images/img1.jpeg",
+      "category": "pirates"
+    },
+    {
+      "id": 16,
+      "title": "Producto 2",
+      "price": 200,
+      "text": "art rejects when you visualize with faith. ",
+      "image": "assets/images/img2.jpeg",
+      "category": "esoteric"
+    },
+    {
+      "id": 17,
+      "title": "Producto 3",
+      "price": 200,
+      "text": "with rice drink vinegar. ",
+      "image": "assets/images/img3.jpeg",
+      "category": "culinary"
+    },
+    {
+      "id": 18,
+      "title": "Producto 1",
+      "price": 200,
+      "text": "Cedriums accelerare, tanquam teres terror.",
+      "image": "assets/images/img1.jpeg",
+      "category": "pirates"
+    },
+    {
+      "id": 19,
+      "title": "Producto 2",
+      "price": 200,
+      "text": "art rejects when you visualize with faith. ",
+      "image": "assets/images/img2.jpeg",
+      "category": "esoteric"
+    },
+    {
+      "id": 20,
+      "title": "Producto 3",
+      "price": 200,
+      "text": "with rice drink vinegar. ",
+      "image": "assets/images/img3.jpeg",
+      "category": "culinary"
+    },
+    {
+      "id": 21,
+      "title": "Producto 1",
+      "price": 200,
+      "text": "Cedriums accelerare, tanquam teres terror.",
+      "image": "assets/images/img1.jpeg",
+      "category": "pirates"
+    },
+    {
+      "id": 22,
+      "title": "Producto 2",
+      "price": 200,
+      "text": "art rejects when you visualize with faith. ",
+      "image": "assets/images/img2.jpeg",
+      "category": "esoteric"
+    },
+    {
+      "id": 23,
+      "title": "Producto 3",
+      "price": 200,
+      "text": "with rice drink vinegar. ",
+      "image": "assets/images/img3.jpeg",
+      "category": "culinary"
+    },
+    {
+      "id": 24,
+      "title": "Producto 2",
+      "price": 200,
+      "text": "art rejects when you visualize with faith. ",
+      "image": "assets/images/img2.jpeg",
+      "category": "esoteric"
+    },
+    {
+      "id": 25,
+      "title": "Producto 3",
+      "price": 200,
+      "text": "with rice drink vinegar. ",
+      "image": "assets/images/img3.jpeg",
+      "category": "culinary"
+    },
+    {
+      "id": 26,
+      "title": "Producto 1",
+      "price": 200,
+      "text": "Cedriums accelerare, tanquam teres terror.",
+      "image": "assets/images/img1.jpeg",
+      "category": "pirates"
+    },
+    {
+      "id": 27,
+      "title": "Producto 2",
+      "price": 200,
+      "text": "art rejects when you visualize with faith. ",
+      "image": "assets/images/img2.jpeg",
+      "category": "esoteric"
+    },
+    {
+      "id": 28,
+      "title": "Producto 3",
+      "price": 200,
+      "text": "with rice drink vinegar. ",
+      "image": "assets/images/img3.jpeg",
+      "category": "culinary"
+    },
+    {
+      "id": 29,
+      "title": "Producto 1",
+      "price": 200,
+      "text": "Cedriums accelerare, tanquam teres terror.",
+      "image": "assets/images/img1.jpeg",
+      "category": "pirates"
+    },
+    {
+      "id": 30,
+      "title": "Producto 2",
+      "price": 200,
+      "text": "art rejects when you visualize with faith. ",
+      "image": "assets/images/img2.jpeg",
+      "category": "esoteric"
+    },
+    {
+      "id": 31,
+      "title": "Producto 3",
+      "price": 200,
+      "text": "with rice drink vinegar. ",
+      "image": "assets/images/img3.jpeg",
+      "category": "culinary"
+    },
+    {
+      "id": 32,
+      "title": "Producto 1",
+      "price": 200,
+      "text": "Cedriums accelerare, tanquam teres terror.",
+      "image": "assets/images/img1.jpeg",
+      "category": "pirates"
+    },
+    {
+      "id": 33,
+      "title": "Producto 2",
+      "price": 200,
+      "text": "art rejects when you visualize with faith. ",
+      "image": "assets/images/img2.jpeg",
+      "category": "esoteric"
+    },
+    {
+      "id": 34,
+      "title": "Producto 3",
+      "price": 200,
+      "text": "with rice drink vinegar. ",
+      "image": "assets/images/img3.jpeg",
+      "category": "culinary"
+    },
+    {
+      "id": 35,
+      "title": "Producto 1",
+      "price": 200,
+      "text": "Cedriums accelerare, tanquam teres terror.",
+      "image": "assets/images/img1.jpeg",
+      "category": "pirates"
+    },
+    {
+      "id": 36,
+      "title": "Producto 2",
+      "price": 200,
+      "text": "art rejects when you visualize with faith. ",
+      "image": "assets/images/img2.jpeg",
+      "category": "esoteric"
+    },
+    {
+      "id": 37,
+      "title": "Producto 3",
+      "price": 200,
+      "text": "with rice drink vinegar. ",
+      "image": "assets/images/img3.jpeg",
+      "category": "culinary"
+    },
+    {
+      "id": 38,
+      "title": "Producto 1",
+      "price": 200,
+      "text": "Cedriums accelerare, tanquam teres terror.",
+      "image": "assets/images/img1.jpeg",
+      "category": "pirates"
+    },
+    {
+      "id": 39,
+      "title": "Producto 2",
+      "price": 200,
+      "text": "art rejects when you visualize with faith. ",
+      "image": "assets/images/img2.jpeg",
+      "category": "esoteric"
+    },
+    {
+      "id": 40,
+      "title": "Producto 3",
+      "price": 200,
+      "text": "with rice drink vinegar. ",
+      "image": "assets/images/img3.jpeg",
+      "category": "culinary"
     }
   ],
   "bannedUsers": [
