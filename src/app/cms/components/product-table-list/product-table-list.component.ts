@@ -17,9 +17,8 @@ export class ProductTableListComponent implements OnInit {
   ) {
   }
 
-
   ngOnInit(): void {
     this.displayedColumns = this.productListApiService.getProductColumns();
-    this.productList = this.productListApiService.getAllProducts();
+    this.productList = this.productListApiService.getProductListPaginated(0, 5);
   }
 }

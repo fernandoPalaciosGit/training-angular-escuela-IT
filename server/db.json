@@ -65,14 +65,6 @@
       "category": "culinary"
     },
     {
-      "id": 1,
-      "title": "Producto 1",
-      "price": 200,
-      "text": "Cedriums accelerare, tanquam teres terror.",
-      "image": "assets/images/img1.jpeg",
-      "category": "pirates"
-    },
-    {
       "id": 4,
       "title": "Producto 2",
       "price": 200,

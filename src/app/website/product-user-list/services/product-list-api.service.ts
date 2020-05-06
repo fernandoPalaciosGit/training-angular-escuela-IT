@@ -16,7 +16,15 @@ export class ProductListApiService {
     return `${ ProductListApiService.API }/${ ProductListApiService.RESOURCES[resource] }`;
   }
 
+  private static getProductListURLPaginated(start: number, end: number) {
+    return `${ ProductListApiService.getProductURL('LIST') }?_start=${ start }&_end=${ end }`;
+  }
+
   constructor(private httpClient: HttpClient) {
+  }
+
+  getProductListPaginated(start: number, end: number): Observable<ProductApi[]> {
+    return this.httpClient.get<ProductApi[]>(ProductListApiService.getProductListURLPaginated(start, end));
   }
 
   getAllProducts(): Observable<ProductApi[]> {
