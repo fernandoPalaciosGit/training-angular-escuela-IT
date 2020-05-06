@@ -15,10 +15,10 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatTableModule } from '@angular/material/table';
 
-
 @NgModule({
   declarations: [],
   imports: [
+    MatTableModule,
     MatSliderModule,
     MatCardModule,
     MatToolbarModule,
@@ -34,10 +34,10 @@ import { MatTableModule } from '@angular/material/table';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    MatMenuModule,
-    MatTableModule
+    MatMenuModule
   ],
   exports: [
+    MatTableModule,
     MatSliderModule,
     MatCardModule,
     MatToolbarModule,
@@ -54,8 +54,7 @@ import { MatTableModule } from '@angular/material/table';
     MatIconModule,
     MatListModule,
     MatListModule,
-    MatMenuModule,
-    MatTableModule
+    MatMenuModule
   ]
 })
 export class MaterialModule {

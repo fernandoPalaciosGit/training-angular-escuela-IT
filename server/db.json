@@ -31,6 +31,14 @@
       "completed": false
     }
   ],
+  "productColumns": [
+    "id",
+    "title",
+    "price",
+    "text",
+    "image",
+    "category"
+  ],
   "products": [
     {
       "id": 1,

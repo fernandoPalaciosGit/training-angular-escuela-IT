@@ -1,23 +1,30 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { ProductApi } from '@product-user-list/models/product';
+import { ProductApi, ProductColumns } from '@product-user-list/models/product';
 import { Observable } from 'rxjs';
 import { filter, flatMap } from 'rxjs/operators';
 
 @Injectable()
 export class ProductListApiService {
   static API = 'http://www.localhost:4000';
-  static RESOURCE = 'products';
+  static RESOURCES = {
+    LIST: 'products',
+    COLUMNS: 'productColumns'
+  };
 
-  private static getProductURL() {
-    return `${ ProductListApiService.API }/${ ProductListApiService.RESOURCE }`;
+  private static getProductURL(resource) {
+    return `${ ProductListApiService.API }/${ ProductListApiService.RESOURCES[resource] }`;
   }
 
   constructor(private httpClient: HttpClient) {
   }
 
   getAllProducts(): Observable<ProductApi[]> {
-    return this.httpClient.get<ProductApi[]>(ProductListApiService.getProductURL());
+    return this.httpClient.get<ProductApi[]>(ProductListApiService.getProductURL('LIST'));
+  }
+
+  getProductColumns(): Observable<ProductColumns> {
+    return this.httpClient.get<ProductColumns>(ProductListApiService.getProductURL('COLUMNS'));
   }
 
   getProduct(id: string): Observable<ProductApi> {

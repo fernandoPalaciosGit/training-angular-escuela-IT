@@ -11,4 +11,7 @@ export interface ProductApi {
   price: number;
   text: string;
   image: string;
+  category: string;
 }
+
+export type ProductColumns = string[];
