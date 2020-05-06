@@ -1,16 +1,25 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { ProductApi } from '@product-user-list/models/product';
-import { Observable } from 'rxjs';
+import { merge, Observable, of } from 'rxjs';
 import { ProductListApiService } from '@product-user-list/services/product-list-api.service';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { catchError, map, startWith, switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-product-table-list',
   templateUrl: './product-table-list.component.html',
   styleUrls: ['./product-table-list.component.scss']
 })
-export class ProductTableListComponent implements OnInit {
+export class ProductTableListComponent implements OnInit, AfterViewInit {
   displayedColumns: Observable<string[]>;
   productList: Observable<ProductApi[]>;
+  isLoadingResults = true;
+  isRateLimitReached = false;
+  readonly paginationSize = 5;
+  resultsLength = of(this.paginationSize);
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
 
   constructor(
     private productListApiService: ProductListApiService
@@ -19,6 +28,42 @@ export class ProductTableListComponent implements OnInit {
 
   ngOnInit(): void {
     this.displayedColumns = this.productListApiService.getProductColumns();
-    this.productList = this.productListApiService.getProductListPaginated(0, 5);
+    this.resultsLength = this.productListApiService.getAllProducts()
+      .pipe(map((products: ProductApi[]) => products.length));
+  }
+
+  ngAfterViewInit(): void {
+    this.bindResetPaginator();
+    this.initPaginator();
+  }
+
+  private bindResetPaginator() {
+    this.sort.sortChange.subscribe(() => this.paginator.firstPage());
+  }
+
+  private initPaginator() {
+    this.productList = merge(this.sort.sortChange, this.paginator.page)
+      .pipe(
+        startWith({}),
+        switchMap(() => {
+          this.isLoadingResults = true;
+          return this.productListApiService.getProductListPaginated
+            .apply(this.productListApiService, this.getRangePagination());
+        }),
+        map((products: ProductApi[]) => {
+          this.isLoadingResults = false;
+          this.isRateLimitReached = false;
+          return products;
+        }),
+        catchError(() => {
+          this.isLoadingResults = false;
+          this.isRateLimitReached = true;
+          return of([] as ProductApi[]);
+        })
+      );
+  }
+
+  private getRangePagination(): number[] {
+    return [0, 1].map((range: number) => (this.paginator.pageIndex + range) * this.paginationSize);
   }
 }
