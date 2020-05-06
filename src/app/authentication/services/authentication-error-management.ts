@@ -14,7 +14,8 @@ export class AuthError extends Error {
 }
 
 const errorLogin: AuthError[] = [
-  new AuthError('WRONG_PASS', 'auth/wrong-password')
+  new AuthError('WRONG_PASS', 'auth/wrong-password'),
+  new AuthError('EMAIL_NOT_FOUND', 'auth/user-not-found'),
 ];
 
 const errorRegister: AuthError[] = [

@@ -4,7 +4,7 @@ import UserCredential = firebase.auth.UserCredential;
 import { Observable } from 'rxjs';
 import { User } from 'firebase';
 import { map } from 'rxjs/operators';
-import { AutErrorService, AuthError } from '@authentication/services/aut-error';
+import { AutErrorService, AuthError } from '@authentication/services/authentication-error-management';
 
 // importante configurar {providedIn: 'root'}
 // --> porque desde el website se debe llamar al servicio para comprobar que esta logueado

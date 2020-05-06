@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AuthError } from '@authentication/services/aut-error';
+import { AuthError } from '@authentication/services/authentication-error-management';
 import { AuthenticationService } from '@authentication/services/authentication.service';
 import { LocalTraceService } from '@shares/services/local-trace.service';
 import UserCredential = firebase.auth.UserCredential;

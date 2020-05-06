@@ -4,7 +4,7 @@ import { LocalTraceService } from '@shares/services/local-trace.service';
 import { UserValidator } from '@authentication/validators/user-validator';
 import { AuthenticationService } from '@authentication/services/authentication.service';
 import UserCredential = firebase.auth.UserCredential;
-import { AuthError } from '@authentication/services/aut-error';
+import { AuthError } from '@authentication/services/authentication-error-management';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { TranslateKeysService } from '@shares/services/translate-keys.service';
 import { Router } from '@angular/router';
