@@ -1,10 +1,11 @@
-import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { ProductApi } from '@product-user-list/models/product';
-import { merge, Observable, of } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { ProductListApiService } from '@product-user-list/services/product-list-api.service';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { catchError, map, startWith, switchMap } from 'rxjs/operators';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-product-table-list',
@@ -12,14 +13,15 @@ import { catchError, map, startWith, switchMap } from 'rxjs/operators';
   styleUrls: ['./product-table-list.component.scss']
 })
 export class ProductTableListComponent implements OnInit, AfterViewInit {
+  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
+  @ViewChild(MatSort, { static: true }) sort: MatSort;
+  readonly paginationSize = [5, 10, 20];
   displayedColumns: Observable<string[]>;
-  productList: Observable<ProductApi[]>;
+  tableDataSource: MatTableDataSource<ProductApi> = new MatTableDataSource();
   isLoadingResults = true;
   isRateLimitReached = false;
-  readonly paginationSize = [5, 10, 20];
   resultsLength: Observable<number> = of(0);
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
+  private productList: Observable<ProductApi[]> = of([]);
 
   constructor(
     private productListApiService: ProductListApiService
@@ -33,10 +35,15 @@ export class ProductTableListComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.resetProductListOnPaginate();
+    this.bindResetProductListOnPaginate();
+    this.bindResetDataMatTable();
   }
 
-  private resetProductListOnPaginate() {
+  private bindResetDataMatTable() {
+    this.productList.subscribe((products: ProductApi[]) => this.tableDataSource.data = products);
+  }
+
+  private bindResetProductListOnPaginate() {
     this.productList = this.paginator.page
       .pipe(
         startWith({}),
@@ -60,5 +67,9 @@ export class ProductTableListComponent implements OnInit, AfterViewInit {
 
   private getRangePagination(): number[] {
     return [0, 1].map((range: number) => (this.paginator.pageIndex + range) * this.paginator.pageSize);
+  }
+
+  filterByOccurrence(event: KeyboardEvent) {
+    this.tableDataSource.filter = (event.currentTarget as HTMLInputElement).value;
   }
 }

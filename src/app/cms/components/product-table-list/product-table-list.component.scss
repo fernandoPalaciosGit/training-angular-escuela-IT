@@ -1,6 +1,7 @@
 .product-list-wrapper {
   position: relative;
   width: 100%;
+  margin-top: 20px;
 }
 
 .product-list-table {
@@ -24,4 +25,9 @@
   color: #980000;
   max-width: 360px;
   text-align: center;
+}
+
+.product-list-filter-occurrence {
+  font-size: 14px;
+  width: 100%;
 }

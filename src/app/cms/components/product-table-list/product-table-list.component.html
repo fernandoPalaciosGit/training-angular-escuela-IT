@@ -1,4 +1,9 @@
 <div class="product-list-wrapper">
+  <mat-form-field class="product-list-filter-occurrence">
+    <mat-label>Filter by occurrence</mat-label>
+    <input matInput (keydown)="filterByOccurrence($event)" placeholder="Ex. master cousine">
+  </mat-form-field>
+
   <div class="example-loading-shade"
        *ngIf="isLoadingResults || isRateLimitReached">
     <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
@@ -7,7 +12,7 @@
     </div>
   </div>
 
-  <table mat-table [dataSource]="productList | async"
+  <table mat-table [dataSource]="tableDataSource"
          matSort
          class="product-list-table">
     <ng-container matColumnDef="id">
