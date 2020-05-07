@@ -1,10 +1,10 @@
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { ProductApi } from '@product-user-list/models/product';
-import { Observable, of, zip } from 'rxjs';
+import { Observable, of, Subject, zip } from 'rxjs';
 import { ProductListApiService } from '@product-user-list/services/product-list-api.service';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { catchError, map, startWith, switchMap } from 'rxjs/operators';
+import { catchError, debounceTime, delay, map, startWith, switchMap, timeout } from 'rxjs/operators';
 import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
@@ -24,6 +24,7 @@ export class ProductTableListComponent implements OnInit, AfterViewInit {
   isRateLimitReached = false;
   resultsLength: Observable<number> = of(0);
   private productList: Observable<ProductApi[]> = of([]);
+  private manageFilterByOccurrence = new Subject<string>();
 
   constructor(
     private productListApiService: ProductListApiService
@@ -41,10 +42,16 @@ export class ProductTableListComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {
     this.bindResetProductListOnPaginate();
     this.bindResetDataMatTable();
+    this.bindFilterDataMatTable();
   }
 
   private bindResetDataMatTable() {
     this.productList.subscribe((products: ProductApi[]) => this.tableDataSource.data = products);
+  }
+
+  private bindFilterDataMatTable() {
+    this.manageFilterByOccurrence.pipe(debounceTime(250))
+      .subscribe((value: string) => this.tableDataSource.filter = value);
   }
 
   private bindResetProductListOnPaginate() {
@@ -75,6 +82,6 @@ export class ProductTableListComponent implements OnInit, AfterViewInit {
 
   filterByOccurrence(event: KeyboardEvent) {
     const filterValue = (event.currentTarget as HTMLInputElement).value;
-    this.tableDataSource.filter = filterValue.trim().toLowerCase();
+    this.manageFilterByOccurrence.next(filterValue.trim().toLowerCase());
   }
 }
