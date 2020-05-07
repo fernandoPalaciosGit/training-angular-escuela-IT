@@ -9,7 +9,8 @@ export class ProductListApiService {
   static API = 'http://www.localhost:4000';
   static RESOURCES = {
     LIST: 'products',
-    COLUMNS: 'productColumns'
+    COLUMNS: 'productColumns',
+    CATEGORIES: 'productCategories',
   };
 
   private static getProductURL(resource) {
@@ -33,6 +34,10 @@ export class ProductListApiService {
 
   getProductColumns(): Observable<ProductColumns> {
     return this.httpClient.get<ProductColumns>(ProductListApiService.getProductURL('COLUMNS'));
+  }
+
+  getProductCategories(): Observable<ProductColumns> {
+    return this.httpClient.get<ProductColumns>(ProductListApiService.getProductURL('CATEGORIES'));
   }
 
   getProduct(id: string): Observable<ProductApi> {

@@ -39,6 +39,11 @@
     "image",
     "category"
   ],
+  "productCategories": [
+    "esoteric",
+    "culinary",
+    "pirates"
+  ],
   "products": [
     {
       "id": 1,

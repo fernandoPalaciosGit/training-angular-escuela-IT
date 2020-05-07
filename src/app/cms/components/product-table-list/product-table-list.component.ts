@@ -1,6 +1,6 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { ProductApi } from '@product-user-list/models/product';
-import { Observable, of } from 'rxjs';
+import { Observable, of, zip } from 'rxjs';
 import { ProductListApiService } from '@product-user-list/services/product-list-api.service';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
@@ -17,6 +17,8 @@ export class ProductTableListComponent implements OnInit, AfterViewInit {
   @ViewChild(MatSort, { static: true }) sort: MatSort;
   readonly paginationSize = [5, 10, 20];
   displayedColumns: Observable<string[]>;
+  displayedCategories: Observable<string[]>;
+  selectedCategory: string;
   tableDataSource: MatTableDataSource<ProductApi> = new MatTableDataSource();
   isLoadingResults = true;
   isRateLimitReached = false;
@@ -30,6 +32,8 @@ export class ProductTableListComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     this.displayedColumns = this.productListApiService.getProductColumns();
+    this.displayedCategories = zip(of(['none']), this.productListApiService.getProductCategories())
+      .pipe(map(((result) => result.flat())));
     this.resultsLength = this.productListApiService.getAllProducts()
       .pipe(map((products: ProductApi[]) => products.length));
   }
@@ -70,6 +74,7 @@ export class ProductTableListComponent implements OnInit, AfterViewInit {
   }
 
   filterByOccurrence(event: KeyboardEvent) {
-    this.tableDataSource.filter = (event.currentTarget as HTMLInputElement).value;
+    const filterValue = (event.currentTarget as HTMLInputElement).value;
+    this.tableDataSource.filter = filterValue.trim().toLowerCase();
   }
 }

@@ -243,8 +243,8 @@ desde el dashboard de usuario de FIrebase
 - Retrieving data through http: debajo del footer debe tener un paginator por cada 5 o 10 productos -> cada paginacion añade 5 o 10 productos de la lista a mostrar
 - columna de editar -> con u boton Action que redirige a otra pagina de edicion de producto 
 - filtro por ocurrencia
-
 - filtro con un selector por categoria (crear nueva entrada en la db.json) y cada seleccion hara un arequest al server y descargara uana nueva lista de tabla
+
 - on click -> la tabla se expande y se visualiza la imagen y la descripcion larga
 - el footer tiene que ser sticky y mosbtrar el total
 - Añadir el sorting en cada columna
