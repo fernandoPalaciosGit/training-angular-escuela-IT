@@ -4,8 +4,20 @@ import { Observable, of, Subject, zip } from 'rxjs';
 import { ProductListApiService } from '@product-user-list/services/product-list-api.service';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { catchError, debounceTime, delay, map, startWith, switchMap, timeout } from 'rxjs/operators';
+import {
+  catchError,
+  debounceTime,
+  delay,
+  flatMap,
+  map,
+  skip,
+  startWith,
+  switchMap,
+  tap,
+  timeout
+} from 'rxjs/operators';
 import { MatTableDataSource } from '@angular/material/table';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-product-table-list',
@@ -18,7 +30,7 @@ export class ProductTableListComponent implements OnInit, AfterViewInit {
   readonly paginationSize = [5, 10, 20];
   displayedColumns: Observable<string[]>;
   displayedCategories: Observable<string[]>;
-  selectedCategory: string;
+  selectedCategory: FormControl;
   tableDataSource: MatTableDataSource<ProductApi> = new MatTableDataSource();
   isLoadingResults = true;
   isRateLimitReached = false;
@@ -37,15 +49,17 @@ export class ProductTableListComponent implements OnInit, AfterViewInit {
       .pipe(map(((result) => result.flat())));
     this.resultsLength = this.productListApiService.getAllProducts()
       .pipe(map((products: ProductApi[]) => products.length));
+    this.selectedCategory = new FormControl('');
   }
 
   ngAfterViewInit(): void {
     this.bindResetProductListOnPaginate();
-    this.bindResetDataMatTable();
     this.bindFilterDataMatTable();
+    this.bindProductCategoriesSelection();
+    this.subscribeRenderDataMatTable();
   }
 
-  private bindResetDataMatTable() {
+  private subscribeRenderDataMatTable() {
     this.productList.subscribe((products: ProductApi[]) => this.tableDataSource.data = products);
   }
 
@@ -80,8 +94,15 @@ export class ProductTableListComponent implements OnInit, AfterViewInit {
     return [0, 1].map((range: number) => (this.paginator.pageIndex + range) * this.paginator.pageSize);
   }
 
-  filterByOccurrence(event: KeyboardEvent) {
-    const filterValue = (event.currentTarget as HTMLInputElement).value;
+  filterByOccurrence($event: KeyboardEvent) {
+    const filterValue = ($event.currentTarget as HTMLInputElement).value;
     this.manageFilterByOccurrence.next(filterValue.trim().toLowerCase());
+  }
+
+  private bindProductCategoriesSelection() {
+    this.selectedCategory.valueChanges.pipe(
+      skip(1),
+      flatMap((category: string) => this.productListApiService.getProductListByCategory(category))
+    ).subscribe((value: ProductApi[]) => this.tableDataSource.data = value);
   }
 }

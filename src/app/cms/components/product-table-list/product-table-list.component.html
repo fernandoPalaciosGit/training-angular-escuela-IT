@@ -10,7 +10,7 @@
     <mat-grid-tile [colspan]="1">
       <mat-form-field>
         <mat-label>Select an Category</mat-label>
-        <mat-select [(value)]="selectedCategory">
+        <mat-select [formControl]="selectedCategory">
           <mat-option *ngFor="let category of displayedCategories | async"
             value="{{category.trim()}}">{{category | uppercase}}</mat-option>
         </mat-select>

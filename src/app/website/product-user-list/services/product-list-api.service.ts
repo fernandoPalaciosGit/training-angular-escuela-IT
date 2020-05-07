@@ -10,7 +10,7 @@ export class ProductListApiService {
   static RESOURCES = {
     LIST: 'products',
     COLUMNS: 'productColumns',
-    CATEGORIES: 'productCategories',
+    CATEGORIES: 'productCategories'
   };
 
   private static getProductURL(resource) {
@@ -21,11 +21,19 @@ export class ProductListApiService {
     return `${ ProductListApiService.getProductURL('LIST') }?_start=${ start }&_end=${ end }`;
   }
 
+  private static getProductListURLFilterOccurrence(category: string) {
+    return `${ ProductListApiService.getProductURL('LIST') }?category_like=${ category }`;
+  }
+
   constructor(private httpClient: HttpClient) {
   }
 
   getProductListPaginated(start: number, end: number): Observable<ProductApi[]> {
     return this.httpClient.get<ProductApi[]>(ProductListApiService.getProductListURLPaginated(start, end));
+  }
+
+  getProductListByCategory(category: string): Observable<ProductApi[]> {
+    return this.httpClient.get<ProductApi[]>(ProductListApiService.getProductListURLFilterOccurrence(category));
   }
 
   getAllProducts(): Observable<ProductApi[]> {
