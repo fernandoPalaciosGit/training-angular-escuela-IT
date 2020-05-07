@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
-import { ProductApi } from '@product-user-list/models/product';
+import { ProductApi, ProductColumns } from '@product-user-list/models/product';
 import { Observable, of, Subject, zip } from 'rxjs';
 import { ProductListApiService } from '@product-user-list/services/product-list-api.service';
 import { MatPaginator } from '@angular/material/paginator';
@@ -7,27 +7,33 @@ import { MatSort } from '@angular/material/sort';
 import {
   catchError,
   debounceTime,
-  delay,
+  startWith,
   flatMap,
   map,
   skip,
-  startWith,
-  switchMap,
-  tap,
-  timeout
+  switchMap
 } from 'rxjs/operators';
 import { MatTableDataSource } from '@angular/material/table';
 import { FormControl } from '@angular/forms';
+import { animate, state, style, transition, trigger } from '@angular/animations';
 
 @Component({
   selector: 'app-product-table-list',
   templateUrl: './product-table-list.component.html',
-  styleUrls: ['./product-table-list.component.scss']
+  styleUrls: ['./product-table-list.component.scss'],
+  animations: [
+    trigger('detailExpand', [
+      state('collapsed', style({ height: '0px', minHeight: '0' })),
+      state('expanded', style({ height: '*' })),
+      transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)'))
+    ])
+  ]
 })
 export class ProductTableListComponent implements OnInit, AfterViewInit {
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
   readonly paginationSize = [5, 10, 20];
+  readonly noneSelector: ProductColumns = ['none'];
   displayedColumns: Observable<string[]>;
   displayedCategories: Observable<string[]>;
   selectedCategory: FormControl;
@@ -35,6 +41,7 @@ export class ProductTableListComponent implements OnInit, AfterViewInit {
   isLoadingResults = true;
   isRateLimitReached = false;
   resultsLength: Observable<number> = of(0);
+  expandedProduct: ProductApi | null;
   private productList: Observable<ProductApi[]> = of([]);
   private manageFilterByOccurrence = new Subject<string>();
 
@@ -45,8 +52,8 @@ export class ProductTableListComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     this.displayedColumns = this.productListApiService.getProductColumns();
-    this.displayedCategories = zip(of(['none']), this.productListApiService.getProductCategories())
-      .pipe(map(((result) => result.flat())));
+    this.displayedCategories = zip(of(this.noneSelector), this.productListApiService.getProductCategories())
+      .pipe(flatMap((result) => result));
     this.resultsLength = this.productListApiService.getAllProducts()
       .pipe(map((products: ProductApi[]) => products.length));
     this.selectedCategory = new FormControl('');

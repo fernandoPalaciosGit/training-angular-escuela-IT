@@ -31,3 +31,21 @@
   font-size: 14px;
   width: 100%;
 }
+
+
+tr.example-element-row:not(.example-expanded-row):hover {
+  background: whitesmoke;
+}
+
+tr.example-element-row:not(.example-expanded-row):active {
+  background: #efefef;
+}
+
+.example-element-detail {
+  overflow: hidden;
+  display: flex;
+}
+
+.example-detail-row {
+  height: 0;
+}
