@@ -16,8 +16,8 @@ export class ProductTableListComponent implements OnInit, AfterViewInit {
   productList: Observable<ProductApi[]>;
   isLoadingResults = true;
   isRateLimitReached = false;
-  readonly paginationSize = 5;
-  resultsLength = of(this.paginationSize);
+  readonly paginationSize = [5, 10, 20];
+  resultsLength: Observable<number> = of(0);
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
@@ -33,16 +33,11 @@ export class ProductTableListComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.bindResetPaginator();
-    this.initPaginator();
+    this.resetProductListOnPaginate();
   }
 
-  private bindResetPaginator() {
-    this.sort.sortChange.subscribe(() => this.paginator.firstPage());
-  }
-
-  private initPaginator() {
-    this.productList = merge(this.sort.sortChange, this.paginator.page)
+  private resetProductListOnPaginate() {
+    this.productList = this.paginator.page
       .pipe(
         startWith({}),
         switchMap(() => {
@@ -64,6 +59,6 @@ export class ProductTableListComponent implements OnInit, AfterViewInit {
   }
 
   private getRangePagination(): number[] {
-    return [0, 1].map((range: number) => (this.paginator.pageIndex + range) * this.paginationSize);
+    return [0, 1].map((range: number) => (this.paginator.pageIndex + range) * this.paginator.pageSize);
   }
 }
