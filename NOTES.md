@@ -245,3 +245,9 @@ desde el dashboard de usuario de FIrebase
 - filtro por ocurrencia
 - filtro con un selector por categoria (crear nueva entrada en la db.json) y cada seleccion hara un arequest al server y descargara uana nueva lista de tabla
 - on click -> la tabla se expande y se visualiza la imagen
+
+### Comunicacion entre componentes que se encuentran en diferentes modulos
+- crear modulo carrito dentro del website con routing
+- a esta pagina se van a añadir todos productos que se añadan desde la pagina de /products
+- queremos comunicar los productos de /products -> /cart
+- añadir en la cabezera del website un boton a la derecha del nav-header , que lleve a la pa,gina de carrito y que muestre con un bach (boton de material) con un contador de los carritos comunicados al modulo de carrito.

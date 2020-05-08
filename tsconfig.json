@@ -28,6 +28,9 @@
       "@contact/*": [
         "src/app/website/contact/*"
       ],
+      "@website-shared/*": [
+        "src/app/website/shared/*"
+      ],
       "@shares/*": [
         "src/app/shared/*"
       ],
