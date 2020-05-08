@@ -251,3 +251,13 @@ desde el dashboard de usuario de FIrebase
 - a esta pagina se van a añadir todos productos que se añadan desde la pagina de /products
 - queremos comunicar los productos de /products -> /cart
 - añadir en la cabezera del website un boton a la derecha del nav-header , que lleve a la pa,gina de carrito y que muestre con un bach (boton de material) con un contador de los carritos comunicados al modulo de carrito.
+
+## performance en subscripcion a Observables
+los observables son streams de datos que permiten suscribirse al estado mutable de la estructura de datos que controle
+para ello nos suscribimos y actuamos en consecuencia
+el problema es que si no nos DESUSCRIBIMOS esa refencia sigue ejecutandose continuamente porque nuestro componente (aunque NO es te visible en la SPA) sigue latente en memoria. 
+entonces hay que desuscribirse del observable cuando ya no necesitemos del push de datos que gestionemos
+por ejemplo:
+- en el ngOndestroy de cada componente -> desuscribirse de todo los observables utilizados
+- utilizar los pipes nativos de angular que gestionen Observables -> automaticamente los suscribe + des-suscribe
+- NO hay que preocuparse del observable resuelto por el HTTPClientModule ->  automaticamente se des-suscribe despues de cada request
