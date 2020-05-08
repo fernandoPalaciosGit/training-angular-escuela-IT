@@ -21,9 +21,6 @@ export class HeaderWebsiteComponent implements OnInit {
 
   ngOnInit(): void {
     this.totalProductCart = this.productCartProxyService.getSubscribeOnPushProduct()
-      .pipe(
-        startWith([]),
-        map((products: ProductApi[]) => products.length)
-      );
+      .pipe(map((products: ProductApi[]) => products.length));
   }
 }

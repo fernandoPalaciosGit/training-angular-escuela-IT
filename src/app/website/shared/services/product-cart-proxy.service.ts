@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { ProductApi } from '@product-user-list/models/product';
-import { filter } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -15,8 +14,7 @@ export class ProductCartProxyService {
   }
 
   getSubscribeOnPushProduct(): Observable<ProductApi[]> {
-    return this.$productCart.asObservable()
-      .pipe(filter((products: ProductApi[]) => products.length > 0));
+    return this.$productCart.asObservable();
   }
 
   addProduct(product: ProductApi): void {
