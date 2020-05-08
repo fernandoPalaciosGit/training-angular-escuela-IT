@@ -20,6 +20,11 @@
       </mat-card-content>
       <mat-card-actions>
         <button mat-raised-button color="primary"
+                (click)="addToProductCart(productApi)">
+          <!--          [routerLink]="['./', product.id]">-->
+          Add to cart
+        </button>
+        <button mat-raised-button color="primary"
                 (click)="selectedProductApi.emit(productApi)">
           <!--          [routerLink]="['./', product.id]">-->
           View details

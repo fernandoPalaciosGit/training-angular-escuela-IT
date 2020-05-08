@@ -11,7 +11,6 @@ import { ProductService } from '@product-user-list/services/product.service';
 import { ProductListApiService } from '@product-user-list/services/product-list-api.service';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { MaterialModule } from '@shares/material.module';
-import { SelectProductService } from '@product-user-list/services/select-product.service';
 
 @NgModule({
   declarations: [
@@ -31,7 +30,6 @@ import { SelectProductService } from '@product-user-list/services/select-product
     ProductListApiService,
     ProductService,
     UsersService,
-    SelectProductService
   ]
 })
 export class ProductUserListModule {

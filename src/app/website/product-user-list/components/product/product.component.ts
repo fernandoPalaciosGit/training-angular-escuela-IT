@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Product, ProductApi } from '@product-user-list/models/product';
 import { ProductListApiService } from '@product-user-list/services/product-list-api.service';
 import { Observable } from 'rxjs';
+import { ProductCartProxyService } from '@website-shared/services/product-cart-proxy.service';
 
 @Component({
   selector: 'app-product',
@@ -15,7 +16,10 @@ export class ProductComponent implements OnInit {
   productListApi$: Observable<ProductApi[]>;
   today: Date = new Date();
 
-  constructor(private productService: ProductListApiService) {
+  constructor(
+    private productService: ProductListApiService,
+    private productCartProxyService: ProductCartProxyService
+  ) {
   }
 
   ngOnInit(): void {
@@ -24,5 +28,9 @@ export class ProductComponent implements OnInit {
 
   selectProduct() {
     this.selectedProduct.emit(this.product);
+  }
+
+  addToProductCart(productApi: ProductApi) {
+    this.productCartProxyService.addProduct(productApi);
   }
 }
