@@ -28,10 +28,10 @@ import { HttpClientModule } from '@angular/common/http';
     JsonParseStringPipe,
     PrintErrorFormPipe,
     TranslateModule,
-    HttpClientModule
+    HttpClientModule,
+    CommonModule,
   ],
   imports: [
-    CommonModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule

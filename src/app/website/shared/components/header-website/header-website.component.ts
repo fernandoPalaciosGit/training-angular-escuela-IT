@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { navigationWebsiteRoutes } from '@website-shared/models/routes.js';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { ProductCartProxyService } from '@website-shared/services/product-cart-proxy.service';
 import { map, startWith } from 'rxjs/operators';
 import { ProductApi } from '@product-user-list/models/product';

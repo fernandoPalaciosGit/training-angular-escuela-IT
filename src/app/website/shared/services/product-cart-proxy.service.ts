@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { ProductApi } from '@product-user-list/models/product';
 import { filter } from 'rxjs/operators';
 
@@ -7,18 +7,19 @@ import { filter } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class ProductCartProxyService {
-  private productList: ProductApi[] = [];
-  private $productCart = new BehaviorSubject<ProductApi[]>(this.productList);
+  private readonly INIT_CART = [];
+  private productList: ProductApi[] = this.INIT_CART;
+  private $productCart = new BehaviorSubject<ProductApi[]>(this.INIT_CART);
 
   constructor() {
   }
 
-  getSubscribeOnPushProduct() {
+  getSubscribeOnPushProduct(): Observable<ProductApi[]> {
     return this.$productCart.asObservable()
       .pipe(filter((products: ProductApi[]) => products.length > 0));
   }
 
-  addProduct(product: ProductApi) {
+  addProduct(product: ProductApi): void {
     this.productList.push(product);
     this.$productCart.next(this.productList);
   }

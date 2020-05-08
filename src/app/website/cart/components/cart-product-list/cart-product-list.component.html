@@ -1,1 +1,3 @@
-<p>cart-product-list works!</p>
+<div *ngFor="let product of productApiCart | async">
+  <div>{{product.id}} : {{product.title}}</div>
+</div>
