@@ -20,7 +20,7 @@
       </mat-card-content>
       <mat-card-actions>
         <button mat-raised-button color="primary"
-                (click)="selectedProductApi(productApi)">
+                (click)="selectedProductApi.emit(productApi)">
           <!--          [routerLink]="['./', product.id]">-->
           View details
         </button>

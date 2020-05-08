@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Product, ProductApi } from '@product-user-list/models/product';
 import { ProductService } from '@product-user-list/services/product.service';
 import { Router } from '@angular/router';
-import { SelectProductService } from '@product-user-list/services/select-product.service';
 
 @Component({
   selector: 'app-item-list',
@@ -15,15 +14,13 @@ export class ItemListComponent implements OnInit {
 
   constructor(
     private productService: ProductService,
-    private route: Router,
-    private selectProductService: SelectProductService
+    private route: Router
   ) {
   }
 
   ngOnInit(): void {
     this.productService.getProducts()
       .then((response: Product[]) => this.productList = response);
-    this.selectProductService.onSelectProduct().subscribe(this.navigateRouteProduct.bind(this));
   }
 
   showProductSelected(product: Product) {
