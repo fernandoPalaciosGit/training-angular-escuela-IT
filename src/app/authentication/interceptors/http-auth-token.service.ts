@@ -8,8 +8,7 @@ export class HttpAuthTokenService implements HttpInterceptor {
   }
 
   intercept(request: HttpRequest<any>, nextInterceptor: HttpHandler): Observable<HttpEvent<any>> {
-    const headers = new HttpHeaders();
-    headers.append('Authorization', `Basic ${ btoa('username:password') }`);
+    const headers = request.headers.set('Authorization', `Basic ${ btoa('username:password') }`);
     const requestWithAuth = request.clone({ headers });
     return nextInterceptor.handle(requestWithAuth);
   }
