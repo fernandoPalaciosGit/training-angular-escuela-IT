@@ -261,3 +261,10 @@ por ejemplo:
 - en el ngOndestroy de cada componente -> desuscribirse de todo los observables utilizados
 - utilizar los pipes nativos de angular que gestionen Observables -> automaticamente los suscribe + des-suscribe
 - NO hay que preocuparse del observable resuelto por el HTTPClientModule ->  automaticamente se des-suscribe despues de cada request
+
+## INTERCEPTORES
+La mayoria de request a una API van autenticadas
+llevan un TOkend de Auth que va asociada en las cabeceras http de cada request -> hay que enviarlas en cada CRUD
+Interceptiores: se trata de un servicio que intercepta TODAS las request HTTP y las  manipula antes de lanzarlas
+- En el @Injectable hay que eliminar el root: aunque se debe configurar de la manera adecuada para que funcione de manera global
+- Los interceptores, son de tienen un scope root, pero deben declararse de manera especifica en el modulo principal de la aplcacion, y antes de la injeccion del modulo HTTPClient (sino es ignorado)

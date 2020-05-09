@@ -9,6 +9,7 @@ import { JsonParseStringPipe } from '@shares/pipes/json-parse-string.pipe';
 import { PrintErrorFormPipe } from '@shares/pipes/print-error-form.pipe';
 import { TranslateModule } from '@ngx-translate/core';
 import { HttpClientModule } from '@angular/common/http';
+import { httpInterceptorServiceList } from '@core/http-interceptors';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,9 @@ import { HttpClientModule } from '@angular/common/http';
     NotFoundComponent,
     JsonParseStringPipe,
     PrintErrorFormPipe
+  ],
+  providers: [
+    httpInterceptorServiceList
   ],
   exports: [
     DateformatPipe,
@@ -29,7 +33,7 @@ import { HttpClientModule } from '@angular/common/http';
     PrintErrorFormPipe,
     TranslateModule,
     HttpClientModule,
-    CommonModule,
+    CommonModule
   ],
   imports: [
     FormsModule,

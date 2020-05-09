@@ -40,6 +40,9 @@
       "@authentication/*": [
         "src/app/authentication/*"
       ],
+      "@core/*": [
+        "src/app/core/*"
+      ],
       "@env/*": [
         "src/environments/*"
       ]
