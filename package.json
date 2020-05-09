@@ -2,13 +2,15 @@
   "name": "training-angular-escuela-it",
   "version": "0.0.0",
   "scripts": {
-    "ng": "ng",
     "start": "npm run server | ng serve",
     "server": "json-server --watch -no-cors --port 4000 server/db.json",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "stats:build": "ng build --prod --stats-json",
+    "stats:analyze": "webpack-bundle-analyzer dist/training-angular-escuela-IT/stats-es2015.json",
+    "stats": "npm run stats:build && npm run stats:analyze"
   },
   "private": true,
   "dependencies": {
@@ -34,6 +36,7 @@
     "zone.js": "~0.10.2"
   },
   "devDependencies": {
+    "@angular-devkit/architect": "~0.900",
     "@angular-devkit/build-angular": "~0.901.0",
     "@angular/cli": "~9.1.0",
     "@angular/compiler-cli": "~9.1.0",
@@ -42,6 +45,10 @@
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "^12.11.1",
     "codelyzer": "^5.1.2",
+    "firebase-tools": "^7.12.1",
+    "fuzzy": "^0.1.3",
+    "inquirer": "^6.2.2",
+    "inquirer-autocomplete-prompt": "^1.0.1",
     "jasmine-core": "~3.5.0",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "^5.0.4",
@@ -53,10 +60,6 @@
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
     "typescript": "~3.8.3",
-    "@angular-devkit/architect": "~0.900",
-    "firebase-tools": "^7.12.1",
-    "fuzzy": "^0.1.3",
-    "inquirer": "^6.2.2",
-    "inquirer-autocomplete-prompt": "^1.0.1"
+    "webpack-bundle-analyzer": "^3.7.0"
   }
 }

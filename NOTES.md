@@ -275,9 +275,11 @@ newReq = req.clone({ body: undefined }); // preserve original body
 newReq = req.clone({ body: null }); // clear the body
 
 
-PWA
+##PWA
 permite instalar la pagina web como si fuera una apicacion de escritorio
 permite hacer push notifications
 al estar instalada en el SO, permite cachear los assets necesarios para el bootsrtrap de la aplcacion: polifills.js, vendros.js... (a traves de service workers http)
-ng add @angular/pwa
+- ng add @angular/pwa (crear tods las dependencias y config para la PWA)
+- firebase init (firebase.json -> hay que especificar el directorio de distribucion que esta en angular.json -> {projects: {[el_nombre_de_la_app]}}) -> dist/el_nombre_de_la_app
+- firebase deploy
 
