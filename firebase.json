@@ -1,19 +1,10 @@
 {
-  "hosting": [
-    {
-      "target": "training-angular-escuela-IT",
-      "public": "dist/training-angular-escuela-IT",
-      "ignore": [
-        "firebase.json",
-        "**/.*",
-        "**/node_modules/**"
-      ],
-      "rewrites": [
-        {
-          "source": "**",
-          "destination": "/index.html"
-        }
-      ]
-    }
-  ]
+  "hosting": {
+    "public": "dist/training-angular-escuela-IT",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
 }
