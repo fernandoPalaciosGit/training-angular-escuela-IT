@@ -6,6 +6,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from '@shares/material.module';
 import { AuthenticationModule } from '@authentication/authentication.module';
 import { TranslateModule } from '@ngx-translate/core';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,8 @@ import { TranslateModule } from '@ngx-translate/core';
     BrowserAnimationsModule,
     MaterialModule,
     AuthenticationModule,
-    TranslateModule.forRoot()
+    TranslateModule.forRoot(),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]

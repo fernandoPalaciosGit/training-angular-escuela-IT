@@ -275,3 +275,9 @@ newReq = req.clone({ body: undefined }); // preserve original body
 newReq = req.clone({ body: null }); // clear the body
 
 
+PWA
+permite instalar la pagina web como si fuera una apicacion de escritorio
+permite hacer push notifications
+al estar instalada en el SO, permite cachear los assets necesarios para el bootsrtrap de la aplcacion: polifills.js, vendros.js... (a traves de service workers http)
+ng add @angular/pwa
+
