@@ -268,3 +268,10 @@ llevan un TOkend de Auth que va asociada en las cabeceras http de cada request -
 Interceptiores: se trata de un servicio que intercepta TODAS las request HTTP y las  manipula antes de lanzarlas
 - En el @Injectable hay que eliminar el root: aunque se debe configurar de la manera adecuada para que funcione de manera global
 - Los interceptores, son de tienen un scope root, pero deben declararse de manera especifica en el modulo principal de la aplcacion, y antes de la injeccion del modulo HTTPClient (sino es ignorado)
+- cuando manipulemos caulquier propiedad de la Request SIEMPRE hay que clonar el objeto y devolverlo, NUNCA el que recibe el interceptor
+- todas las propiedades de la request qeue clonas y NO modificas, se mantendran, excepto si las declaras como null
+newReq = req.clone({ ... }); // body not mentioned => preserve original body
+newReq = req.clone({ body: undefined }); // preserve original body
+newReq = req.clone({ body: null }); // clear the body
+
+

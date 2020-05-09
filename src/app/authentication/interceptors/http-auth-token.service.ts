@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
+import { HttpEvent, HttpHandler, HttpHeaders, HttpInterceptor, HttpRequest } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable()
@@ -7,9 +7,10 @@ export class HttpAuthTokenService implements HttpInterceptor {
   constructor() {
   }
 
-  // MIDDLEWARE of HttpClient
-  intercept(lastRequest: HttpRequest<any>, nextInterceptor: HttpHandler): Observable<HttpEvent<any>> {
-    console.info('--------transform ${lastRequest}----');
-    return nextInterceptor.handle(lastRequest);
+  intercept(request: HttpRequest<any>, nextInterceptor: HttpHandler): Observable<HttpEvent<any>> {
+    const headers = new HttpHeaders();
+    headers.append('Authorization', `Basic ${ btoa('username:password') }`);
+    const requestWithAuth = request.clone({ headers });
+    return nextInterceptor.handle(requestWithAuth);
   }
 }
